@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5A7FF7421C5972CA00D7E2A2 /* NewsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7FF7411C5972CA00D7E2A2 /* NewsItem.swift */; };
 		5AF66C5D1C54004A00659CE9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF66C5C1C54004A00659CE9 /* AppDelegate.swift */; };
 		5AF66C5F1C54004A00659CE9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF66C5E1C54004A00659CE9 /* ViewController.swift */; };
 		5AF66C621C54004A00659CE9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AF66C601C54004A00659CE9 /* Main.storyboard */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5A7FF7411C5972CA00D7E2A2 /* NewsItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsItem.swift; sourceTree = "<group>"; };
 		5AF66C591C54004A00659CE9 /* Newscaster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Newscaster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AF66C5C1C54004A00659CE9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5AF66C5E1C54004A00659CE9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				5AF66C911C5402C500659CE9 /* RSSClient.swift */,
+				5A7FF7411C5972CA00D7E2A2 /* NewsItem.swift */,
 			);
 			name = Clients;
 			sourceTree = "<group>";
@@ -298,6 +301,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5AF66C651C54004A00659CE9 /* Newscaster.xcdatamodeld in Sources */,
+				5A7FF7421C5972CA00D7E2A2 /* NewsItem.swift in Sources */,
 				5AF66C921C5402C500659CE9 /* RSSClient.swift in Sources */,
 				5AF66C5F1C54004A00659CE9 /* ViewController.swift in Sources */,
 				5AF66C5D1C54004A00659CE9 /* AppDelegate.swift in Sources */,
@@ -527,6 +531,7 @@
 				5AF66C861C54004A00659CE9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5AF66C871C54004A00659CE9 /* Build configuration list for PBXNativeTarget "NewscasterTests" */ = {
 			isa = XCConfigurationList;
@@ -535,6 +540,7 @@
 				5AF66C891C54004A00659CE9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5AF66C8A1C54004A00659CE9 /* Build configuration list for PBXNativeTarget "NewscasterUITests" */ = {
 			isa = XCConfigurationList;
@@ -543,6 +549,7 @@
 				5AF66C8C1C54004A00659CE9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
