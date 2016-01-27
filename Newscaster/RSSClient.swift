@@ -50,7 +50,7 @@ class RSSClient {
         return task
     }
     
-    func getFeedForRSS(var location: String, completionHandler: (result: [[String: String]]?, error: String?) -> Void) -> NSURLSessionTask {
+    func getFeedForRSS(var location: String, completionHandler: (result: [NewsItem]?, error: String?) -> Void) -> NSURLSessionTask {
         location = "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20rss%20where%20url%3D%22\(formatURLForSearch(location))%22&format=json&diagnostics=true&callback="
         let task = downloadJSONData(location) {data, response, error in
             if data == nil {
@@ -63,6 +63,10 @@ class RSSClient {
                     let query = result!["query"] as! [String: AnyObject]
                     let results = query["results"] as! [String : AnyObject]
                     let item = results["item"] as! [[String : AnyObject]]
+                    let newsItems = item.map({
+                        NewsItem(rss: $0)
+                    })
+                    completionHandler(result: newsItems, error: nil)
                 }
             }
         }
