@@ -50,7 +50,8 @@ class RSSClient {
         return task
     }
     
-    func getFeedForRSS(location: String, completionHandler: (result: [String: String]?, error: String?) -> Void) -> NSURLSessionTask {
+    func getFeedForRSS(var location: String, completionHandler: (result: [[String: String]]?, error: String?) -> Void) -> NSURLSessionTask {
+        location = "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20rss%20where%20url%3D%22\(formatURLForSearch(location))%22&format=json&diagnostics=true&callback="
         let task = downloadJSONData(location) {data, response, error in
             if data == nil {
                 completionHandler(result: nil, error: error?.localizedDescription)
@@ -58,6 +59,10 @@ class RSSClient {
             self.parseJSONData(data!) {result, error in
                 if result != nil {
                     print(result)
+                    // retrieve the array of results
+                    let query = result!["query"] as! [String: AnyObject]
+                    let results = query["results"] as! [String : AnyObject]
+                    let item = results["item"] as! [[String : AnyObject]]
                 }
             }
         }
@@ -76,6 +81,13 @@ class RSSClient {
             }
         }
         return task
+    }
+    
+    /// Format the given URL to be used in YQL request.
+    private func formatURLForSearch(url: String) -> String {
+        let removedColons = url.stringByReplacingOccurrencesOfString(":", withString: "%3A")
+        let removedSlashes = removedColons.stringByReplacingOccurrencesOfString("/", withString: "%2F")
+        return removedSlashes
     }
     
 }
