@@ -24,8 +24,8 @@ import CoreData
     
     // relationships
     
-    /// News items associated with the feed (individual articles)
-    @NSManaged var items: NSSet
+    /// News articles associated with the feed (individual articles)
+    @NSManaged var articles: NSSet
     
     override init(entity: NSEntityDescription, insertIntoManagedObjectContext context: NSManagedObjectContext?) {
         super.init(entity: entity, insertIntoManagedObjectContext: context)
