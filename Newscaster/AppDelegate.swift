@@ -9,6 +9,16 @@
 import UIKit
 import CoreData
 
+let sharedContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+
+func saveContext() {
+    do {
+        try sharedContext.save()
+    } catch _ {
+        
+    }
+}
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
