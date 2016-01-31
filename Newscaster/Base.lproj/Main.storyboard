@@ -22,10 +22,10 @@
             </objects>
             <point key="canvasLocation" x="31" y="497"/>
         </scene>
-        <!--View Controller-->
+        <!--Add Source View Controller-->
         <scene sceneID="ebU-DM-cVC">
             <objects>
-                <viewController id="DfD-5p-q7w" sceneMemberID="viewController">
+                <viewController id="DfD-5p-q7w" customClass="AddSourceViewController" customModule="Newscaster" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="w9g-HQ-EQe"/>
                         <viewControllerLayoutGuide type="bottom" id="MBu-TY-ojz"/>
@@ -120,7 +120,7 @@
         <!--Newscaster-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="BYZ-38-t0r" customClass="FeedViewController" customModule="Newscaster" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="BYZ-38-t0r" customClass="FeedsViewController" customModule="Newscaster" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -196,7 +196,7 @@
         <!--Name of Feed-->
         <scene sceneID="YQv-9Q-bqc">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="bNU-FL-ubI" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="bNU-FL-ubI" customClass="ArticlesViewController" customModule="Newscaster" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gS2-jo-h2J"/>
                         <viewControllerLayoutGuide type="bottom" id="qT1-eb-SJz"/>
@@ -278,7 +278,7 @@
         <!--Title of Article-->
         <scene sceneID="P54-bd-bz2">
             <objects>
-                <viewController id="vLc-Ur-A8X" sceneMemberID="viewController">
+                <viewController id="vLc-Ur-A8X" customClass="LinkViewController" customModule="Newscaster" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="52u-18-p8X"/>
                         <viewControllerLayoutGuide type="bottom" id="OEv-z8-ydO"/>

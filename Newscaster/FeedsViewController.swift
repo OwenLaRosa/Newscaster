@@ -1,5 +1,5 @@
 //
-//  FeedViewController.swift
+//  FeedsViewController.swift
 //  Newscaster
 //
 //  Created by Owen LaRosa on 1/23/16.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FeedViewController: UIViewController {
+class FeedsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
