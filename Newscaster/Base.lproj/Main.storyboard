@@ -39,6 +39,9 @@
                                 <state key="normal" title="Cancel">
                                     <color key="titleColor" red="0.40000000000000002" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="cancel:" destination="DfD-5p-q7w" eventType="touchUpInside" id="WPV-xH-gMn"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add News Source" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rJY-12-W3k">
                                 <rect key="frame" x="198" y="28" width="205" height="21"/>
@@ -87,6 +90,9 @@
                                 <state key="normal" title="    Add Feed    ">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="addFeed:" destination="DfD-5p-q7w" eventType="touchUpInside" id="GKp-z1-dqP"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -112,6 +118,10 @@
                             <constraint firstItem="kp0-wW-fD8" firstAttribute="trailing" secondItem="jZM-f6-pdI" secondAttribute="trailing" id="zuQ-CM-Lxc"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="linkField" destination="3gh-sK-vU8" id="dXq-wC-zaa"/>
+                        <outlet property="nameField" destination="jZM-f6-pdI" id="SBS-kp-qRP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yUi-hf-7Xg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
