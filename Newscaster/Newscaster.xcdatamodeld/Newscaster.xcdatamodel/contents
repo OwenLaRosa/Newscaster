@@ -11,13 +11,14 @@
     </entity>
     <entity name="Feed" syncable="YES">
         <attribute name="lastUpdated" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="query" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="articles" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Article" inverseName="feed" inverseEntity="Article" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Feed" positionX="-63" positionY="-18" width="128" height="120"/>
         <element name="Article" positionX="-54" positionY="0" width="128" height="150"/>
+        <element name="Feed" positionX="-63" positionY="-18" width="128" height="135"/>
     </elements>
 </model>

@@ -13,6 +13,8 @@ import CoreData
     
     // attributes
     
+    /// Name of the feed specified by the user.
+    @NSManaged var name: String
     /// The type of feed (e.g. RSS, atom, google)
     @NSManaged var type: String
     /// The search term for the feed
@@ -31,11 +33,12 @@ import CoreData
         super.init(entity: entity, insertIntoManagedObjectContext: context)
     }
     
-    init(type: String, query: String?, url: String?, context: NSManagedObjectContext) {
+    init(name: String, type: String, query: String?, url: String?, context: NSManagedObjectContext) {
         let entity = NSEntityDescription.entityForName("Feed", inManagedObjectContext: context)!
         
         super.init(entity: entity, insertIntoManagedObjectContext: context)
         
+        self.name = name
         self.type = type
         self.query = query
         self.url = url

@@ -27,7 +27,7 @@ class AddSourceViewController: UIViewController {
                 // otherwise, the text entry becomes the search query
                 query = linkField.text!
             }
-            let feed = Feed(type: type, query: query, url: link, context: sharedContext)
+            let feed = Feed(name: name, type: type, query: query, url: link, context: sharedContext)
             saveContext()
         }
         dismissViewControllerAnimated(false, completion: nil)
