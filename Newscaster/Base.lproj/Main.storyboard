@@ -112,7 +112,7 @@
                                         <rect key="frame" x="0.0" y="28" width="600" height="91"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lTm-Ql-FvG" id="mj7-4P-gMc">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="91"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="90.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Headline" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Eu-E3-Qpq">
@@ -166,10 +166,50 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Name of Feed" id="VTQ-gV-IvU"/>
+                    <connections>
+                        <segue destination="vLc-Ur-A8X" kind="show" identifier="OpenLink" id="Gmw-Bo-OXJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wDm-zf-7Ks" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1479" y="497"/>
+        </scene>
+        <!--Title of Article-->
+        <scene sceneID="P54-bd-bz2">
+            <objects>
+                <viewController id="vLc-Ur-A8X" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="52u-18-p8X"/>
+                        <viewControllerLayoutGuide type="bottom" id="OEv-z8-ydO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="UaJ-OK-HRk">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="321-qr-YfX">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                            </webView>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Plb-tZ-n65">
+                                <rect key="frame" x="0.0" y="64" width="600" height="2"/>
+                            </progressView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.40000000000000002" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="321-qr-YfX" firstAttribute="bottom" secondItem="OEv-z8-ydO" secondAttribute="top" id="8jo-Vy-lA9"/>
+                            <constraint firstItem="321-qr-YfX" firstAttribute="top" secondItem="52u-18-p8X" secondAttribute="bottom" id="BXV-B9-NDZ"/>
+                            <constraint firstItem="321-qr-YfX" firstAttribute="trailing" secondItem="Plb-tZ-n65" secondAttribute="trailing" id="Et6-mB-Z28"/>
+                            <constraint firstItem="321-qr-YfX" firstAttribute="leading" secondItem="UaJ-OK-HRk" secondAttribute="leading" id="Tr6-7Q-nyU"/>
+                            <constraint firstItem="321-qr-YfX" firstAttribute="top" secondItem="Plb-tZ-n65" secondAttribute="top" id="cd5-vU-RAm"/>
+                            <constraint firstItem="321-qr-YfX" firstAttribute="leading" secondItem="Plb-tZ-n65" secondAttribute="leading" id="ifs-ht-OOd"/>
+                            <constraint firstAttribute="trailing" secondItem="321-qr-YfX" secondAttribute="trailing" id="ojg-mN-c12"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Title of Article" id="ITm-WR-dP7"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HXI-CE-Ytb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2183" y="497"/>
         </scene>
     </scenes>
 </document>
