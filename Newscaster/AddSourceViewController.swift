@@ -30,12 +30,12 @@ class AddSourceViewController: UIViewController {
             let feed = Feed(name: name, type: type, query: query, url: link, context: sharedContext)
             saveContext()
         }
-        dismissViewControllerAnimated(false, completion: nil)
+        dismissViewControllerAnimated(true, completion: nil)
     }
     
     @IBAction func cancel(sender: UIButton) {
         // return to the feeds view controller
-        dismissViewControllerAnimated(false, completion: nil)
+        dismissViewControllerAnimated(true, completion: nil)
     }
     
     /// Determine if the url is correctly formatted.

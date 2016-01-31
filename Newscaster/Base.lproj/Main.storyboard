@@ -195,7 +195,7 @@
                     <navigationItem key="navigationItem" title="Newscaster" id="vJ4-cq-YGy">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="k42-hu-bFV">
                             <connections>
-                                <segue destination="DfD-5p-q7w" kind="showDetail" id="hJ5-Mu-2rf"/>
+                                <segue destination="DfD-5p-q7w" kind="modal" modalTransitionStyle="crossDissolve" id="hJ5-Mu-2rf"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
