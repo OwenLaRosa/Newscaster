@@ -14,6 +14,12 @@ class AddSourceViewController: UIViewController {
     
     @IBOutlet weak var linkField: UITextField!
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        nameField.becomeFirstResponder()
+    }
+    
     @IBAction func addFeed(sender: UIButton) {
         if let name = nameField.text {
             var type = "google" // default value is a text search
