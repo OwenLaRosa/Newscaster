@@ -8,7 +8,9 @@
 
 import UIKit
 
-class FeedsViewController: UIViewController {
+class FeedsViewController: UIViewController, UITableViewDataSource {
+    
+    var feeds = [Feed]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,7 +21,24 @@ class FeedsViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 0
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("FeedTableViewCell")! as! FeedTableViewCell
+        let feed = feeds[indexPath.row]
+        
+        cell.feedNameLabel.text = feed.name
+        cell.feedDescriptionLabel.text = feed.url
+        
+        return cell
+    }
 
 }
 
