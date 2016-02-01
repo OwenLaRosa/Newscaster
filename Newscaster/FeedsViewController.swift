@@ -85,6 +85,8 @@ class FeedsViewController: UIViewController, UITableViewDataSource, NSFetchedRes
         tableView.insertRowsAtIndexPaths(insertedIndexPaths, withRowAnimation: .Fade)
         tableView.deleteRowsAtIndexPaths(deletedIndexPaths, withRowAnimation: .Fade)
         tableView.endUpdates()
+        
+        saveContext()
     }
 
 }
