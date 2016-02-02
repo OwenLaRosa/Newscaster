@@ -291,6 +291,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Name of Feed" id="VTQ-gV-IvU"/>
                     <connections>
+                        <outlet property="tableView" destination="YFP-vz-G0h" id="mKk-Cr-IHU"/>
                         <segue destination="vLc-Ur-A8X" kind="show" identifier="OpenLink" id="Gmw-Bo-OXJ"/>
                     </connections>
                 </viewController>
