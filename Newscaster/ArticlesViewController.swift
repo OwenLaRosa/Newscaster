@@ -21,6 +21,17 @@ class ArticlesViewController: UIViewController, UITableViewDataSource, NSFetched
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
+        if feed.articles.count == 0 {
+            // nothing yet, fetch some news stories
+            // but first, determine the type
+            switch feed.type {
+            case "rss" :
+                loadRSSArticles()
+            default:
+                break
+            }
+        }
+        
         tableView.reloadData()
     }
     
@@ -75,6 +86,18 @@ class ArticlesViewController: UIViewController, UITableViewDataSource, NSFetched
         tableView.endUpdates()
         
         saveContext()
+    }
+    
+    func loadRSSArticles() {
+        RSSClient().getFeedForRSS(feed.url!) {result, error in
+            if let returnedArticles = result {
+                dispatch_async(dispatch_get_main_queue()) {
+                    self.feed.articles = returnedArticles.map({
+                        Article(newsItem: $0, context: sharedContext)
+                    })
+                }
+            }
+        }
     }
     
 }
