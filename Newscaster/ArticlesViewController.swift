@@ -91,10 +91,11 @@ class ArticlesViewController: UIViewController, UITableViewDataSource, NSFetched
     func loadRSSArticles() {
         RSSClient().getFeedForRSS(feed.url!) {result, error in
             if let returnedArticles = result {
+                let mappedArticles = returnedArticles.map({
+                    Article(newsItem: $0, context: sharedContext)
+                })
                 dispatch_async(dispatch_get_main_queue()) {
-                    self.feed.articles = returnedArticles.map({
-                        Article(newsItem: $0, context: sharedContext)
-                    })
+                    self.feed.articles.addObjectsFromArray(mappedArticles)
                 }
             }
         }
