@@ -184,6 +184,7 @@
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="zvE-BY-aC4"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="dts-xt-A52"/>
                                 </connections>
                             </tableView>
                         </subviews>

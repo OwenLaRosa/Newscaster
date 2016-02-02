@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class FeedsViewController: UIViewController, UITableViewDataSource, NSFetchedResultsControllerDelegate {
+class FeedsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -55,6 +55,19 @@ class FeedsViewController: UIViewController, UITableViewDataSource, NSFetchedRes
         cell.feedDescriptionLabel.text = feed.url ?? feed.query
         
         return cell
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let feed = fetchedResultsController.objectAtIndexPath(indexPath)
+        performSegueWithIdentifier("ShowArticles", sender: feed)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        super.prepareForSegue(segue, sender: sender)
+        if let feed = sender as? Feed {
+            let destination = segue.destinationViewController as! ArticlesViewController
+            destination.feed = feed
+        }
     }
     
     lazy var fetchedResultsController: NSFetchedResultsController = {
