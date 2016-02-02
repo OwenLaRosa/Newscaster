@@ -280,6 +280,10 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="bNU-FL-ubI" id="8ak-Zi-LqU"/>
+                                    <outlet property="delegate" destination="bNU-FL-ubI" id="1Sr-yY-4DY"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
