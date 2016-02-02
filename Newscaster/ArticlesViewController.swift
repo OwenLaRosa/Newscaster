@@ -18,6 +18,16 @@ class ArticlesViewController: UIViewController, UITableViewDataSource, NSFetched
     var insertedIndexPaths = [NSIndexPath]()
     var deletedIndexPaths = [NSIndexPath]()
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        fetchedResultsController.delegate = self
+        do {
+            try fetchedResultsController.performFetch()
+        } catch _ {
+        }
+    }
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
