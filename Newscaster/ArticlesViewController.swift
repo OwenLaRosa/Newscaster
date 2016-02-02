@@ -21,6 +21,9 @@ class ArticlesViewController: UIViewController, UITableViewDataSource, NSFetched
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
+        // set the title of the navigation bar
+        navigationItem.title = feed.name
+        
         if feed.articles.count == 0 {
             // nothing yet, fetch some news stories
             // but first, determine the type
