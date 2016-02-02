@@ -27,7 +27,7 @@ class AddSourceViewController: UIViewController {
             var query: String?
             // check if the link is a valid url
             if validateUrl(linkField.text!) {
-                type = "none" // atom or rss will be determined later
+                type = "rss" // atom or rss will be determined later
                 link = linkField.text!
             } else {
                 // otherwise, the text entry becomes the search query
