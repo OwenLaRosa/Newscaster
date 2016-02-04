@@ -24,6 +24,9 @@ import CoreData
     /// Plaintext content of the article
     @NSManaged var textContent: String?
     
+    /// Feed entity associated with the article.
+    @NSManaged var feed: Feed
+    
     override init(entity: NSEntityDescription, insertIntoManagedObjectContext context: NSManagedObjectContext?) {
         super.init(entity: entity, insertIntoManagedObjectContext: context)
     }
