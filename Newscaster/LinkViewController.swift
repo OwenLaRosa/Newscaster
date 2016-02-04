@@ -10,4 +10,6 @@ import UIKit
 
 class LinkViewController: UIViewController {
     
+    var article: Article!
+    
 }

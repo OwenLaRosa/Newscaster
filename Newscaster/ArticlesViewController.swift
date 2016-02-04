@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class ArticlesViewController: UIViewController, UITableViewDataSource, NSFetchedResultsControllerDelegate {
+class ArticlesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -66,6 +66,19 @@ class ArticlesViewController: UIViewController, UITableViewDataSource, NSFetched
         cell.detailTextLabel?.text = ""
         
         return cell
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let article = fetchedResultsController.fetchedObjects?[indexPath.row]
+            performSegueWithIdentifier("OpenLink", sender: article)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        super.prepareForSegue(segue, sender: sender)
+        if let article = sender as? Article {
+            let destination = segue.destinationViewController as! LinkViewController
+            destination.article = article
+        }
     }
     
     lazy var fetchedResultsController: NSFetchedResultsController = {
