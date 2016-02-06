@@ -12,4 +12,10 @@ class LinkViewController: UIViewController {
     
     var article: Article!
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationItem.title = article.title
+    }
+    
 }
