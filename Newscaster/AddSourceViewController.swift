@@ -22,6 +22,10 @@ class AddSourceViewController: UIViewController {
     
     @IBAction func addFeed(sender: UIButton) {
         if let name = nameField.text {
+            if !textContainsWords(name) {
+                displayAlert("Invalid Input", message: "Names must contain valid letters and/or numbers.")
+                return
+            }
             var type = "google" // default value is a text search
             var link: String? // nil if a search query is used
             var query: String?
@@ -60,6 +64,16 @@ class AddSourceViewController: UIViewController {
         let okButton = UIAlertAction(title: "Ok", style: .Cancel, handler: nil)
         alertController.addAction(okButton)
         presentViewController(alertController, animated: true, completion: nil)
+    }
+    
+    /// Determine if the text contains valid characters.
+    private func textContainsWords(text: String) -> Bool {
+        let pattern = "^[a-zA-Z0-9]"
+        
+        if let _ = text.rangeOfString(pattern, options: .RegularExpressionSearch) {
+            return true
+        }
+        return false
     }
     
 }
