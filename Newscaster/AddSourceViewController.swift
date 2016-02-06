@@ -55,4 +55,11 @@ class AddSourceViewController: UIViewController {
         return false
     }
     
+    func displayAlert(title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .Alert)
+        let okButton = UIAlertAction(title: "Ok", style: .Cancel, handler: nil)
+        alertController.addAction(okButton)
+        presentViewController(alertController, animated: true, completion: nil)
+    }
+    
 }
