@@ -1,5 +1,5 @@
 //
-//  RSSClient.swift
+//  NewsClient.swift
 //  Newscaster
 //
 //  Created by Owen LaRosa on 1/23/16.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-class RSSClient {
+class NewsClient {
     
     /// Download data at the destination URL.
     func downloadData(url: String, completionHandler: (data: NSData?, response: NSURLResponse?, error: NSError?) -> Void) -> NSURLSessionTask {

@@ -115,7 +115,7 @@ class ArticlesViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func loadRSSArticles() {
-        RSSClient().getFeedForRSS(feed.url!) {result, error in
+        NewsClient().getFeedForRSS(feed.url!) {result, error in
             if let returnedArticles = result {
                 let mappedArticles: [Article] = returnedArticles.map({
                     let article = Article(newsItem: $0, context: sharedContext)

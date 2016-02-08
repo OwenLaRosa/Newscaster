@@ -23,7 +23,7 @@
 		5AF66C6A1C54004A00659CE9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AF66C681C54004A00659CE9 /* LaunchScreen.storyboard */; };
 		5AF66C751C54004A00659CE9 /* NewscasterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF66C741C54004A00659CE9 /* NewscasterTests.swift */; };
 		5AF66C801C54004A00659CE9 /* NewscasterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF66C7F1C54004A00659CE9 /* NewscasterUITests.swift */; };
-		5AF66C921C5402C500659CE9 /* RSSClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF66C911C5402C500659CE9 /* RSSClient.swift */; };
+		5AF66C921C5402C500659CE9 /* NewsClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF66C911C5402C500659CE9 /* NewsClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,7 +66,7 @@
 		5AF66C7B1C54004A00659CE9 /* NewscasterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NewscasterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AF66C7F1C54004A00659CE9 /* NewscasterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewscasterUITests.swift; sourceTree = "<group>"; };
 		5AF66C811C54004A00659CE9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5AF66C911C5402C500659CE9 /* RSSClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSSClient.swift; sourceTree = "<group>"; };
+		5AF66C911C5402C500659CE9 /* NewsClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,7 +189,7 @@
 		5AF66C901C5402A600659CE9 /* Clients */ = {
 			isa = PBXGroup;
 			children = (
-				5AF66C911C5402C500659CE9 /* RSSClient.swift */,
+				5AF66C911C5402C500659CE9 /* NewsClient.swift */,
 				5A7FF7411C5972CA00D7E2A2 /* NewsItem.swift */,
 			);
 			name = Clients;
@@ -335,7 +335,7 @@
 				5A7B35EB1C5ABC2500E7E601 /* Feed.swift in Sources */,
 				5A9F95D01C5E7EA900344129 /* ArticleTableViewCell.swift in Sources */,
 				5A7FF7421C5972CA00D7E2A2 /* NewsItem.swift in Sources */,
-				5AF66C921C5402C500659CE9 /* RSSClient.swift in Sources */,
+				5AF66C921C5402C500659CE9 /* NewsClient.swift in Sources */,
 				5A9F95C81C5E7D4F00344129 /* ArticlesViewController.swift in Sources */,
 				5AF66C5F1C54004A00659CE9 /* FeedsViewController.swift in Sources */,
 				5AF66C5D1C54004A00659CE9 /* AppDelegate.swift in Sources */,
