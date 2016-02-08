@@ -12,6 +12,8 @@ class LinkViewController: UIViewController {
     
     var article: Article!
     
+    @IBOutlet weak var webView: UIWebView!
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
