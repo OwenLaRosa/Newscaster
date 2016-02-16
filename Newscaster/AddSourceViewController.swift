@@ -26,7 +26,7 @@ class AddSourceViewController: UIViewController {
                 displayAlert("Invalid Input", message: "Names must contain valid letters and/or numbers.")
                 return
             }
-            var type = "google" // default value is a text search
+            var type = "bing" // default value is a text search
             var link: String? // nil if a search query is used
             var query: String?
             // check if the link is a valid url
