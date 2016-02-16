@@ -40,6 +40,8 @@ class ArticlesViewController: UIViewController, UITableViewDataSource, UITableVi
             switch feed.type {
             case "rss" :
                 loadRSSArticles()
+            case "bing" :
+                loadNewsArticles()
             default:
                 break
             }
@@ -116,6 +118,21 @@ class ArticlesViewController: UIViewController, UITableViewDataSource, UITableVi
     
     func loadRSSArticles() {
         NewsClient().getFeedForRSS(feed.url!) {result, error in
+            if let returnedArticles = result {
+                let mappedArticles: [Article] = returnedArticles.map({
+                    let article = Article(newsItem: $0, context: sharedContext)
+                    article.feed = self.feed
+                    return article
+                })
+                dispatch_async(dispatch_get_main_queue()) {
+                    self.feed.articles.addObjectsFromArray(mappedArticles)
+                }
+            }
+        }
+    }
+    
+    func loadNewsArticles() {
+        NewsClient().getFeedForTerm(feed.query!) {result, error in
             if let returnedArticles = result {
                 let mappedArticles: [Article] = returnedArticles.map({
                     let article = Article(newsItem: $0, context: sharedContext)
