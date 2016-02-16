@@ -14,6 +14,7 @@ struct NewsItem {
     let description: String
     let link: String
     let date: NSDate
+    let source: String?
     
     init(rss: [String : AnyObject]) {
         self.title = rss["title"] as? String ?? ""
@@ -21,9 +22,16 @@ struct NewsItem {
         self.link = rss["link"] as? String ?? ""
         // TODO: Get the date from the result
         self.date = NSDate()
+        self.source = nil
     }
     
-    
+    init(bing: [String: AnyObject]) {
+        self.title = bing["title"] as? String ?? ""
+        self.description = bing["description"] as? String ?? ""
+        self.link = bing["link"] as? String ?? ""
+        self.date = NSDate()
+        self.source = bing["Source"] as? String ?? ""
+    }
     
     
     
