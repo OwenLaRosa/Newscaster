@@ -85,7 +85,8 @@ class ArticlesViewController: UIViewController, UITableViewDataSource, UITableVi
     
     lazy var fetchedResultsController: NSFetchedResultsController = {
         let fetchRequest = NSFetchRequest(entityName: "Article")
-        fetchRequest.sortDescriptors = []
+        // show newest articles at the top
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "date", ascending: false)]
         fetchRequest.predicate = NSPredicate(format: "feed == %@", self.feed)
         let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: sharedContext, sectionNameKeyPath: nil, cacheName: nil)
         return fetchedResultsController
