@@ -21,7 +21,11 @@ struct NewsItem {
         self.description = rss["description"] as? String ?? ""
         self.link = rss["link"] as? String ?? ""
         // TODO: Get the date from the result
-        self.date = NSDate()
+        
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "EEE, dd MMM yyyy HH:mm:ss zzz"
+        // return formatted date or the starting point of the epoch
+        self.date = formatter.dateFromString(rss["pubDate"] as? String ?? "") ?? NSDate(timeIntervalSince1970: 0)
         self.source = nil
     }
     
