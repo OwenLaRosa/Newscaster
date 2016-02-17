@@ -13,6 +13,8 @@ class ArticlesViewController: UIViewController, UITableViewDataSource, UITableVi
     
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var refreshButton: UIBarButtonItem!
+    
     var feed: Feed!
     var articles = [Article]()
     var insertedIndexPaths = [NSIndexPath]()

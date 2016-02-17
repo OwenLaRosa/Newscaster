@@ -294,8 +294,11 @@
                             <constraint firstItem="YFP-vz-G0h" firstAttribute="top" secondItem="gS2-jo-h2J" secondAttribute="bottom" id="lN8-bv-vSP"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Name of Feed" id="VTQ-gV-IvU"/>
+                    <navigationItem key="navigationItem" title="Name of Feed" id="VTQ-gV-IvU">
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="U3J-Vb-dn7"/>
+                    </navigationItem>
                     <connections>
+                        <outlet property="refreshButton" destination="U3J-Vb-dn7" id="agf-BS-Pkv"/>
                         <outlet property="tableView" destination="YFP-vz-G0h" id="mKk-Cr-IHU"/>
                         <segue destination="vLc-Ur-A8X" kind="show" identifier="OpenLink" id="Gmw-Bo-OXJ"/>
                     </connections>
