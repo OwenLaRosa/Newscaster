@@ -38,16 +38,11 @@ class ArticlesViewController: UIViewController, UITableViewDataSource, UITableVi
         
         if feed.articles.count == 0 {
             // nothing yet, fetch some news stories
-            // but first, determine the type
-            switch feed.type {
-            case "rss" :
-                loadRSSArticles()
-            case "bing" :
-                loadNewsArticles()
-            default:
-                break
-            }
+            loadContent()
         }
+        
+        refreshButton.target = self
+        refreshButton.action = "loadContent"
         
         tableView.reloadData()
     }
@@ -117,6 +112,19 @@ class ArticlesViewController: UIViewController, UITableViewDataSource, UITableVi
         tableView.endUpdates()
         
         saveContext()
+    }
+    
+    func loadContent() {
+        print("loadContent")
+        // determine the content type
+        switch feed.type {
+        case "rss" :
+            loadRSSArticles()
+        case "bing" :
+            loadNewsArticles()
+        default:
+            break
+        }
     }
     
     func loadRSSArticles() {
