@@ -37,7 +37,8 @@ struct NewsItem {
         self.title = bing["title"] as? String ?? ""
         self.description = bing["description"] as? String ?? ""
         self.link = bing["link"] as? String ?? ""
-        self.dateString = ""
+        let pubDate = bing["pubDate"] as? String ?? ""
+        self.dateString = pubDate
         self.source = bing["Source"] as? String ?? ""
     }
     
