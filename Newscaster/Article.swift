@@ -16,7 +16,7 @@ import CoreData
     /// The URL where the article is located
     @NSManaged var link: String
     /// The author or site who published the article
-    @NSManaged var source: String?
+    @NSManaged var source: String
     /// Preview text of the article
     @NSManaged var preview: String?
     /// The article's publication date
@@ -40,7 +40,7 @@ import CoreData
         
         self.title = newsItem.title
         self.link = newsItem.link
-        //self.source = newsItem.source
+        self.source = newsItem.source
         self.preview = newsItem.description
         self.date = newsItem.date
     }

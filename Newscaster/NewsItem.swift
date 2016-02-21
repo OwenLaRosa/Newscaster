@@ -20,7 +20,7 @@ struct NewsItem {
         return formatter.dateFromString(dateString) ?? NSDate(timeIntervalSince1970: 0)
     }
     let dateString: String
-    let source: String?
+    let source: String
     
     init(rss: [String : AnyObject]) {
         self.title = rss["title"] as? String ?? ""
@@ -30,7 +30,7 @@ struct NewsItem {
         
         let pubDate = rss["pubDate"] as? String ?? ""
         self.dateString = pubDate
-        self.source = nil
+        self.source = ""
     }
     
     init(bing: [String: AnyObject]) {
