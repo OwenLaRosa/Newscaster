@@ -48,7 +48,7 @@ class NewsClient {
                     let results = query["results"] as! [String : AnyObject]
                     let item = results["item"] as! [[String : AnyObject]]
                     let newsItems = item.map({
-                        NewsItem(rss: $0)
+                        NewsItem(bing: $0)
                     })
                     completionHandler(result: newsItems, error: nil)
                 }
