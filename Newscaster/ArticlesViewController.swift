@@ -62,7 +62,7 @@ class ArticlesViewController: UIViewController, UITableViewDataSource, UITableVi
         cell.headlineLabel.text = article.title
         cell.linkLabel.text = article.link
         // details about source and publication date
-        cell.detailTextLabel?.text = ""
+        cell.infoLabel.text = "\(article.source) \(article.dateString)"
         
         return cell
     }
