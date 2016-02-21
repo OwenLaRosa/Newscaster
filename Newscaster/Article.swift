@@ -21,6 +21,8 @@ import CoreData
     @NSManaged var preview: String?
     /// The article's publication date
     @NSManaged var date: NSDate?
+    /// String representation of the publication date
+    @NSManaged var dateString: String
     /// Plaintext content of the article
     @NSManaged var textContent: String?
     
