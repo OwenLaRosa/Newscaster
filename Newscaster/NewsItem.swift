@@ -13,7 +13,13 @@ struct NewsItem {
     let title: String
     let description: String
     let link: String
-    let date: NSDate
+    var date: NSDate {
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "EEE, dd MMM yyyy HH:mm:ss zzz"
+        // return formatted date or the starting point of the epoch
+        return formatter.dateFromString(dateString) ?? NSDate(timeIntervalSince1970: 0)
+    }
+    let dateString: String
     let source: String?
     
     init(rss: [String : AnyObject]) {
@@ -22,10 +28,8 @@ struct NewsItem {
         self.link = rss["link"] as? String ?? ""
         // TODO: Get the date from the result
         
-        let formatter = NSDateFormatter()
-        formatter.dateFormat = "EEE, dd MMM yyyy HH:mm:ss zzz"
-        // return formatted date or the starting point of the epoch
-        self.date = formatter.dateFromString(rss["pubDate"] as? String ?? "") ?? NSDate(timeIntervalSince1970: 0)
+        let pubDate = rss["pubDate"] as? String ?? ""
+        self.dateString = pubDate
         self.source = nil
     }
     
@@ -33,7 +37,7 @@ struct NewsItem {
         self.title = bing["title"] as? String ?? ""
         self.description = bing["description"] as? String ?? ""
         self.link = bing["link"] as? String ?? ""
-        self.date = NSDate()
+        self.dateString = ""
         self.source = bing["Source"] as? String ?? ""
     }
     
