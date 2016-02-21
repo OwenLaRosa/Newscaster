@@ -43,6 +43,7 @@ import CoreData
         self.source = newsItem.source
         self.preview = newsItem.description
         self.date = newsItem.date
+        self.dateString = newsItem.dateString
     }
     
 }
