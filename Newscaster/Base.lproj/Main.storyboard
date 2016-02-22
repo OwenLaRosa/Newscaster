@@ -269,7 +269,7 @@
                                         <connections>
                                             <outlet property="headlineLabel" destination="8Eu-E3-Qpq" id="DGw-X4-Frj"/>
                                             <outlet property="infoLabel" destination="LaD-6O-qlt" id="jmq-kM-hBz"/>
-                                            <outlet property="linkLabel" destination="Qwu-fb-4yG" id="1th-bF-bXP"/>
+                                            <outlet property="previewLabel" destination="Qwu-fb-4yG" id="m9F-M5-Q7a"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

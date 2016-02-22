@@ -11,7 +11,7 @@ import UIKit
 class ArticleTableViewCell: UITableViewCell {
     
     @IBOutlet weak var headlineLabel: UILabel!
-    @IBOutlet weak var linkLabel: UILabel!
+    @IBOutlet weak var previewLabel: UILabel!
     @IBOutlet weak var infoLabel: UILabel!
     
 }

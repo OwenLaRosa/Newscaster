@@ -60,7 +60,7 @@ class ArticlesViewController: UIViewController, UITableViewDataSource, UITableVi
         let article = fetchedResultsController.objectAtIndexPath(indexPath) as! Article
         
         cell.headlineLabel.text = article.title
-        cell.linkLabel.text = article.link
+        cell.previewLabel.text = article.link
         // details about source and publication date
         cell.infoLabel.text = "\(article.source) \(article.dateString)"
         
