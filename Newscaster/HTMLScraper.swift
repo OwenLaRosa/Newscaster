@@ -10,4 +10,10 @@ import Foundation
 
 class HTMLScraper {
     
+    let html: String
+    
+    init(html: String) {
+        self.html = html
+    }
+    
 }
