@@ -103,6 +103,13 @@
 			name = Entities;
 			sourceTree = "<group>";
 		};
+		5A7EE0611C7F97DA0007D5E2 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
 		5AF66C501C54004900659CE9 = {
 			isa = PBXGroup;
 			children = (
@@ -160,6 +167,7 @@
 		5AF66C8D1C5400A700659CE9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				5A7EE0611C7F97DA0007D5E2 /* Utilities */,
 				5A7B35E91C5ABBFD00E7E601 /* Entities */,
 				5AF66C901C5402A600659CE9 /* Clients */,
 			);
