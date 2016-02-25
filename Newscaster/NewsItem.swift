@@ -24,7 +24,9 @@ struct NewsItem {
     
     init(rss: [String : AnyObject]) {
         self.title = rss["title"] as? String ?? ""
-        self.description = rss["description"] as? String ?? ""
+        let description = rss["description"] as? String ?? ""
+        // remove non-text html elements
+        self.description = HTMLScraper(html: description).removeAllTags()
         self.link = rss["link"] as? String ?? ""
         // TODO: Get the date from the result
         
@@ -35,7 +37,8 @@ struct NewsItem {
     
     init(bing: [String: AnyObject]) {
         self.title = bing["title"] as? String ?? ""
-        self.description = bing["description"] as? String ?? ""
+        let description = bing["description"] as? String ?? ""
+        self.description = HTMLScraper(html: description).removeAllTags()
         self.link = bing["link"] as? String ?? ""
         let pubDate = bing["pubDate"] as? String ?? ""
         self.dateString = pubDate
