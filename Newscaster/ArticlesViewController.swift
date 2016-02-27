@@ -139,11 +139,7 @@ class ArticlesViewController: UIViewController, UITableViewDataSource, UITableVi
         NewsClient().getFeedForRSS(feed.url!) {result, error in
             if let returnedArticles = result {
                 dispatch_async(dispatch_get_main_queue()) {
-                    let newArticles = self.filterArticles(returnedArticles)
-                    for i in newArticles {
-                        let article = Article(newsItem: i, context: sharedContext)
-                        article.feed = self.feed
-                    }
+                    self.updateArticleList(withArticles: returnedArticles)
                     self.tableView.reloadData()
                 }
             }
@@ -154,14 +150,19 @@ class ArticlesViewController: UIViewController, UITableViewDataSource, UITableVi
         NewsClient().getFeedForTerm(feed.query!) {result, error in
             if let returnedArticles = result {
                 dispatch_async(dispatch_get_main_queue()) {
-                    let newArticles = self.filterArticles(returnedArticles)
-                    for i in newArticles {
-                        let article = Article(newsItem: i, context: sharedContext)
-                        article.feed = self.feed
-                    }
+                    self.updateArticleList(withArticles: returnedArticles)
                     self.tableView.reloadData()
                 }
             }
+        }
+    }
+    
+    /// Adds new articles to the existing list
+    func updateArticleList(withArticles articles: [NewsItem]) {
+        let newArticles = self.filterArticles(articles)
+        for i in newArticles {
+            let article = Article(newsItem: i, context: sharedContext)
+            article.feed = self.feed
         }
     }
     
