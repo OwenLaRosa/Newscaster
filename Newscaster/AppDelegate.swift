@@ -10,6 +10,7 @@ import UIKit
 import CoreData
 
 let sharedContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+var root: Root!
 
 func saveContext() {
     do {
@@ -33,6 +34,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().translucent = false
         UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         UIApplication.sharedApplication().setStatusBarStyle(.LightContent, animated: false)
+        
+        if NSUserDefaults.standardUserDefaults().boolForKey("hasLaunched") {
+            let fetchRequest = NSFetchRequest(entityName: "Root")
+            do {
+                let results = try sharedContext.executeFetchRequest(fetchRequest)
+                root = results[0] as! Root
+            } catch {}
+        } else {
+            root = Root(context: sharedContext)
+            NSUserDefaults.standardUserDefaults().setBool(true, forKey: "hasLaunched")
+        }
         
         return true
     }
