@@ -138,13 +138,13 @@ class ArticlesViewController: UIViewController, UITableViewDataSource, UITableVi
     func loadRSSArticles() {
         NewsClient().getFeedForRSS(feed.url!) {result, error in
             if let returnedArticles = result {
-                let mappedArticles: [Article] = returnedArticles.map({
-                    let article = Article(newsItem: $0, context: sharedContext)
-                    article.feed = self.feed
-                    return article
-                })
                 dispatch_async(dispatch_get_main_queue()) {
-                    self.feed.articles.addObjectsFromArray(mappedArticles)
+                    let newArticles = self.filterArticles(returnedArticles)
+                    for i in newArticles {
+                        let article = Article(newsItem: i, context: sharedContext)
+                        article.feed = self.feed
+                    }
+                    self.tableView.reloadData()
                 }
             }
         }
@@ -153,16 +153,30 @@ class ArticlesViewController: UIViewController, UITableViewDataSource, UITableVi
     func loadNewsArticles() {
         NewsClient().getFeedForTerm(feed.query!) {result, error in
             if let returnedArticles = result {
-                let mappedArticles: [Article] = returnedArticles.map({
-                    let article = Article(newsItem: $0, context: sharedContext)
-                    article.feed = self.feed
-                    return article
-                })
                 dispatch_async(dispatch_get_main_queue()) {
-                    self.feed.articles.addObjectsFromArray(mappedArticles)
+                    let newArticles = self.filterArticles(returnedArticles)
+                    for i in newArticles {
+                        let article = Article(newsItem: i, context: sharedContext)
+                        article.feed = self.feed
+                    }
+                    self.tableView.reloadData()
                 }
             }
         }
+    }
+    
+    /// Filters out articles with the same title as those currently in the feed
+    func filterArticles(articles: [NewsItem]) -> [NewsItem] {
+        let existingTitles = self.feed.articles.map() {
+            $0.title ?? ""
+        }
+        var newArticles = [NewsItem]()
+        for i in articles {
+            if !existingTitles.contains(i.title) {
+                newArticles.append(i)
+            }
+        }
+        return newArticles
     }
     
 }
