@@ -20,12 +20,12 @@ class FeedsViewController: UIViewController, UITableViewDataSource, UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        fetchedResultsController.delegate = self
+        /*fetchedResultsController.delegate = self
         do {
             try fetchedResultsController.performFetch()
         } catch {
             
-        }
+        }*/
     }
 
     override func didReceiveMemoryWarning() {
@@ -44,12 +44,14 @@ class FeedsViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return fetchedResultsController.fetchedObjects?.count ?? 0
+        //return fetchedResultsController.fetchedObjects?.count ?? 0
+        return root.feeds.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("FeedTableViewCell")! as! FeedTableViewCell
-        let feed = fetchedResultsController.objectAtIndexPath(indexPath) as! Feed
+        let feed = root.feeds.objectAtIndex(indexPath.row) as! Feed
+        //let feed = fetchedResultsController.objectAtIndexPath(indexPath) as! Feed
         
         cell.feedNameLabel.text = feed.name
         cell.feedDescriptionLabel.text = feed.url ?? feed.query
@@ -73,6 +75,7 @@ class FeedsViewController: UIViewController, UITableViewDataSource, UITableViewD
     lazy var fetchedResultsController: NSFetchedResultsController = {
         let fetchRequest = NSFetchRequest(entityName: "Feed")
         fetchRequest.sortDescriptors = []
+        fetchRequest.predicate = NSPredicate(format: "root == %@", root)
         let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: sharedContext, sectionNameKeyPath: nil, cacheName: nil)
         return fetchedResultsController
     }()
