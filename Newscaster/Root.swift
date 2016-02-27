@@ -12,7 +12,7 @@ import CoreData
 @objc class Root: NSManagedObject {
     
     /// Ordered set of all Feed entities
-    @NSManaged var feeds: NSOrderedSet
+    @NSManaged var feeds: NSMutableOrderedSet
     
     override init(entity: NSEntityDescription, insertIntoManagedObjectContext context: NSManagedObjectContext?) {
         super.init(entity: entity, insertIntoManagedObjectContext: context)
