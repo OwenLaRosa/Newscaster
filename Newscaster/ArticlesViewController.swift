@@ -45,6 +45,16 @@ class ArticlesViewController: UIViewController, UITableViewDataSource, UITableVi
         refreshButton.action = "loadContent"
         
         tableView.reloadData()
+        print(fetchedResultsController.fetchedObjects?.count)
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        // after the view appears, if needed, delete unused articles
+        if feed.articles.count > 30 {
+            deleteOldArticles()
+        }
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -92,6 +102,8 @@ class ArticlesViewController: UIViewController, UITableViewDataSource, UITableVi
         let fetchRequest = NSFetchRequest(entityName: "Article")
         // show newest articles at the top
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "date", ascending: false)]
+        // fetch a maximum of 30 articles
+        fetchRequest.fetchLimit = 30
         fetchRequest.predicate = NSPredicate(format: "feed == %@", self.feed)
         let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: sharedContext, sectionNameKeyPath: nil, cacheName: nil)
         return fetchedResultsController
@@ -144,6 +156,26 @@ class ArticlesViewController: UIViewController, UITableViewDataSource, UITableVi
                 }
             }
         }
+    }
+    
+    /// Delete articles that are no longer being displayed
+    func deleteOldArticles() {
+        var oldArticles = [Article]()
+        // find article entities that are not fetched results
+        if let fetchedArticles = fetchedResultsController.fetchedObjects as? [Article] {
+            for i in feed.articles {
+                let article = i as! Article
+                if !fetchedArticles.contains(i as! Article) {
+                    oldArticles.append(article)
+                }
+            }
+        }
+        // delete the articles and save the context
+        print("old articles: \(oldArticles.count)")
+        for i in oldArticles {
+            sharedContext.deleteObject(i)
+        }
+        saveContext()
     }
     
     func loadNewsArticles() {
