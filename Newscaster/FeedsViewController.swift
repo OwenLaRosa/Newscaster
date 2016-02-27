@@ -60,8 +60,10 @@ class FeedsViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let feed = fetchedResultsController.objectAtIndexPath(indexPath)
-        performSegueWithIdentifier("ShowArticles", sender: feed)
+        //let feed = fetchedResultsController.objectAtIndexPath(indexPath)
+        if let feed = root.feeds[indexPath.row] as? Feed {
+            performSegueWithIdentifier("ShowArticles", sender: feed)
+        }
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
