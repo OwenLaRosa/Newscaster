@@ -17,9 +17,14 @@
         <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="articles" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Article" inverseName="feed" inverseEntity="Article" syncable="YES"/>
+        <relationship name="root" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Root" inverseName="feeds" inverseEntity="Root" syncable="YES"/>
+    </entity>
+    <entity name="Root" syncable="YES">
+        <relationship name="feeds" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Feed" inverseName="root" inverseEntity="Feed" syncable="YES"/>
     </entity>
     <elements>
         <element name="Article" positionX="-54" positionY="0" width="128" height="165"/>
-        <element name="Feed" positionX="-63" positionY="-18" width="128" height="135"/>
+        <element name="Feed" positionX="-63" positionY="-18" width="128" height="150"/>
+        <element name="Root" positionX="-63" positionY="63" width="128" height="60"/>
     </elements>
 </model>
