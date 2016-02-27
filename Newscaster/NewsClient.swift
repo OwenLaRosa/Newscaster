@@ -36,7 +36,7 @@ class NewsClient {
     }
     
     func getFeedForTerm(query: String, completionHandler: (result: [NewsItem]?, error: String?) -> Void) -> NSURLSessionTask {
-        let location = "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20rss%20where%20url%3D%22https%3A%2F%2Fwww.bing.com%2Fnews%2Fsearch%3Fq%3D\(query)%26go%3DSubmit%26qs%3Dn%26form%3DQBNT%26pq%3D\(query)%26sc%3D8-7%26sp%3D-1%26sk%3D%26ghc%3D1%26format%3Drss%22&format=json&diagnostics=true&callback="
+        let location = "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20rss%20where%20url%3D%22https%3A%2F%2Fwww.bing.com%2Fnews%2Fsearch%3Fq%3D\(formatQueryForSearch(query))%26go%3DSubmit%26qs%3Dn%26form%3DQBNT%26pq%3D\(formatQueryForSearch(query))%26sc%3D8-7%26sp%3D-1%26sk%3D%26ghc%3D1%26format%3Drss%22&format=json&diagnostics=true&callback="
         let task = downloadData(location) {data, response, error in
             if data == nil {
                 completionHandler(result: nil, error: error?.localizedDescription)
@@ -99,6 +99,24 @@ class NewsClient {
         let removedColons = url.stringByReplacingOccurrencesOfString(":", withString: "%3A")
         let removedSlashes = removedColons.stringByReplacingOccurrencesOfString("/", withString: "%2F")
         return removedSlashes
+    }
+    
+    /// Format the given query into a valid search string
+    private func formatQueryForSearch(var query: String) -> String {
+        // for ease of use, make the string lowercase
+        query = query.lowercaseString
+        // characters allowed for the search query
+        let allowedCharacters = "qwertyuiopasdfghjklzxcvbnm1234567890+"
+        // replace spaces with "+" to separate the different keywords
+        let removedSpaces = query.stringByReplacingOccurrencesOfString("  ", withString: "+")
+        // create a new string with only the valid characters
+        var result = ""
+        for i in removedSpaces.characters {
+            if allowedCharacters.containsString(String(i)) {
+                result += String(i)
+            }
+        }
+        return result
     }
     
 }
