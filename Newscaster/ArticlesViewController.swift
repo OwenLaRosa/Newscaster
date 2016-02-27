@@ -72,6 +72,14 @@ class ArticlesViewController: UIViewController, UITableViewDataSource, UITableVi
             performSegueWithIdentifier("OpenLink", sender: article)
     }
     
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        let orientation = UIApplication.sharedApplication().statusBarOrientation
+        if orientation == .Portrait {
+            return 160.0
+        }
+        return 120.0
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         super.prepareForSegue(segue, sender: sender)
         if let article = sender as? Article {

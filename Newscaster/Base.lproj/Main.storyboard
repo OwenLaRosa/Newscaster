@@ -220,21 +220,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="162" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YFP-vz-G0h">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="160" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YFP-vz-G0h">
                                 <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ArticleTableViewCell" rowHeight="162" id="lTm-Ql-FvG" customClass="ArticleTableViewCell" customModule="Newscaster" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="600" height="162"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ArticleTableViewCell" rowHeight="160" id="lTm-Ql-FvG" customClass="ArticleTableViewCell" customModule="Newscaster" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="600" height="160"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lTm-Ql-FvG" id="mj7-4P-gMc">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="161.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="159.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Headline" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Eu-E3-Qpq">
                                                     <rect key="frame" x="8" y="0.0" width="584" height="51"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="56" id="Mme-Py-KAn"/>
+                                                        <constraint firstAttribute="height" constant="56" id="Mme-Py-KAn">
+                                                            <variation key="heightClass=compact" constant="31"/>
+                                                        </constraint>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                     <nil key="highlightedColor"/>
@@ -242,7 +244,9 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Preview" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qwu-fb-4yG">
                                                     <rect key="frame" x="8" y="59" width="584" height="60"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="60" id="h4K-vS-hg2"/>
+                                                        <constraint firstAttribute="height" constant="60" id="h4K-vS-hg2">
+                                                            <variation key="heightClass=compact" constant="40"/>
+                                                        </constraint>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="highlightedColor"/>
@@ -260,7 +264,9 @@
                                                 <constraint firstItem="Qwu-fb-4yG" firstAttribute="trailing" secondItem="LaD-6O-qlt" secondAttribute="trailing" id="ECz-HL-gsG"/>
                                                 <constraint firstItem="8Eu-E3-Qpq" firstAttribute="leading" secondItem="mj7-4P-gMc" secondAttribute="leadingMargin" id="JjP-xN-28F"/>
                                                 <constraint firstItem="8Eu-E3-Qpq" firstAttribute="trailing" secondItem="mj7-4P-gMc" secondAttribute="trailingMargin" id="PBn-91-Ufs"/>
-                                                <constraint firstItem="Qwu-fb-4yG" firstAttribute="top" secondItem="mj7-4P-gMc" secondAttribute="topMargin" constant="51" id="QT8-Sk-Cme"/>
+                                                <constraint firstItem="Qwu-fb-4yG" firstAttribute="top" secondItem="mj7-4P-gMc" secondAttribute="topMargin" constant="51" id="QT8-Sk-Cme">
+                                                    <variation key="heightClass=compact" constant="31"/>
+                                                </constraint>
                                                 <constraint firstItem="LaD-6O-qlt" firstAttribute="top" secondItem="Qwu-fb-4yG" secondAttribute="bottom" constant="8" id="USs-gM-p9T"/>
                                                 <constraint firstItem="Qwu-fb-4yG" firstAttribute="leading" secondItem="LaD-6O-qlt" secondAttribute="leading" id="cc1-JX-EuP"/>
                                                 <constraint firstItem="Qwu-fb-4yG" firstAttribute="leading" secondItem="8Eu-E3-Qpq" secondAttribute="leading" id="jL5-ge-TzG"/>
@@ -298,7 +304,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wDm-zf-7Ks" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1479" y="497"/>
+            <point key="canvasLocation" x="1479" y="496"/>
         </scene>
         <!--Title of Article-->
         <scene sceneID="P54-bd-bz2">
