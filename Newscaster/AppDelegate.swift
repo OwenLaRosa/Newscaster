@@ -44,6 +44,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } else {
             root = Root(context: sharedContext)
             NSUserDefaults.standardUserDefaults().setBool(true, forKey: "hasLaunched")
+            saveContext()
         }
         
         return true

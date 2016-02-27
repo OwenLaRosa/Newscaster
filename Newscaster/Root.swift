@@ -14,6 +14,10 @@ import CoreData
     /// Ordered set of all Feed entities
     @NSManaged var feeds: NSOrderedSet
     
+    override init(entity: NSEntityDescription, insertIntoManagedObjectContext context: NSManagedObjectContext?) {
+        super.init(entity: entity, insertIntoManagedObjectContext: context)
+    }
+    
     init(context: NSManagedObjectContext) {
         let entity = NSEntityDescription.entityForName("Root", inManagedObjectContext: context)!
         super.init(entity: entity, insertIntoManagedObjectContext: context)

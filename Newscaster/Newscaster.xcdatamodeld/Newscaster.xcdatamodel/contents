@@ -19,7 +19,7 @@
         <relationship name="articles" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Article" inverseName="feed" inverseEntity="Article" syncable="YES"/>
         <relationship name="root" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Root" inverseName="feeds" inverseEntity="Root" syncable="YES"/>
     </entity>
-    <entity name="Root" syncable="YES">
+    <entity name="Root" representedClassName=".Root" syncable="YES">
         <relationship name="feeds" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Feed" inverseName="root" inverseEntity="Feed" syncable="YES"/>
     </entity>
     <elements>
