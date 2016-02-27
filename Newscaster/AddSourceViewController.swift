@@ -38,6 +38,8 @@ class AddSourceViewController: UIViewController {
                 query = nameField.text
             }
             let feed = Feed(name: name, type: type, query: query, url: link, context: sharedContext)
+            root.feeds.insertObject(feed, atIndex: 0)
+            feed.root = root
             saveContext()
         }
         dismissViewControllerAnimated(true, completion: nil)
