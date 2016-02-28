@@ -45,8 +45,24 @@ class HTMLScraper {
         let startIndex = link.rangeOfString(startString)?.endIndex ?? link.startIndex
         // find last index of url
         let endIndex = link.rangeOfString(endString)?.startIndex ?? link.endIndex
-        // find substrings and return the result
-        return link.substringToIndex(endIndex).substringFromIndex(startIndex)
+        // find string between the two indices
+        let subString = link.substringToIndex(endIndex).substringFromIndex(startIndex)
+        // remove escape codes and return the result
+        return replaceEscapeCodesFromString(subString)
+    }
+    
+    /// Replaces escape codes in the specified string with their correct characters
+    func replaceEscapeCodesFromString(var string: String) -> String {
+        // will use just a few for now
+        let escapeCodeDictionary = [
+            "%3a": ":",
+            "%2f": "/",
+            "%3d": "="
+        ]
+        for i in escapeCodeDictionary.keys {
+            string = string.stringByReplacingOccurrencesOfString(i, withString: escapeCodeDictionary[i]!)
+        }
+        return string
     }
     
 }
