@@ -36,4 +36,17 @@ class HTMLScraper {
         return result
     }
     
+    /// Extract the URL from a link provided by a news result
+    func getURLFromNewsLink(link: String) -> String {
+        // starting and ending indicators
+        let startString = "&url="
+        let endString = "&c="
+        // find first index of url
+        let startIndex = link.rangeOfString(startString)?.endIndex ?? link.startIndex
+        // find last index of url
+        let endIndex = link.rangeOfString(endString)?.startIndex ?? link.endIndex
+        // find substrings and return the result
+        return link.substringToIndex(endIndex).substringFromIndex(startIndex)
+    }
+    
 }
