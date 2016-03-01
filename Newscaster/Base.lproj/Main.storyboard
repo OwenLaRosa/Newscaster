@@ -37,7 +37,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DQG-pN-keQ">
                                 <rect key="frame" x="20" y="20" width="48" height="30"/>
                                 <state key="normal" title="Cancel">
-                                    <color key="titleColor" red="0.40000000000000002" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.0" green="0.73333333329999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="cancel:" destination="DfD-5p-q7w" eventType="touchUpInside" id="WPV-xH-gMn"/>
@@ -50,7 +50,7 @@
                                     <constraint firstAttribute="height" constant="21" id="iV0-C0-NDp"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="22"/>
-                                <color key="textColor" red="0.40000000000000002" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.0" green="0.73333333333333328" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter search term or URL of feed" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ZF-54-x9H">
@@ -70,6 +70,7 @@
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="This can be whatever you want." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jZM-f6-pdI">
                                 <rect key="frame" x="20" y="86" width="560" height="30"/>
+                                <color key="tintColor" red="0.0" green="0.73333333329999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="Kgt-Wm-pwc"/>
                                 </constraints>
@@ -78,6 +79,7 @@
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="If empty, the name will be used." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3gh-sK-vU8">
                                 <rect key="frame" x="20" y="153" width="560" height="30"/>
+                                <color key="tintColor" red="0.0" green="0.73333333329999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="4oM-gE-zdh"/>
                                 </constraints>
@@ -86,7 +88,7 @@
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m9r-LU-b2Z">
                                 <rect key="frame" x="251" y="191" width="98" height="30"/>
-                                <color key="backgroundColor" red="0.40000000000000002" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.0" green="0.73333333329999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="    Add Feed    ">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
