@@ -24,6 +24,9 @@ class LinkViewController: UIViewController, UIWebViewDelegate {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
+        // play button should be disabled to begin with
+        playButton.enabled = false
+        
         navigationItem.title = article.title
         var link = article.link
         if article.feed.type == "bing" {
@@ -43,6 +46,9 @@ class LinkViewController: UIViewController, UIWebViewDelegate {
         let html = webView.stringByEvaluatingJavaScriptFromString("document.body.innerHTML")
         print(html)
         // TODO: Extract article text from HTML
+        
+        // once that's done, enable the play button
+        playButton.enabled = true
     }
     
 }
