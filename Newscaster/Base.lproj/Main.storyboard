@@ -338,8 +338,13 @@
                             <constraint firstAttribute="trailing" secondItem="321-qr-YfX" secondAttribute="trailing" id="ojg-mN-c12"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Title of Article" id="ITm-WR-dP7"/>
+                    <navigationItem key="navigationItem" title="Title of Article" id="ITm-WR-dP7">
+                        <barButtonItem key="rightBarButtonItem" systemItem="play" id="yq9-Xh-O4P">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="playButton" destination="yq9-Xh-O4P" id="YPP-af-EmS"/>
                         <outlet property="webView" destination="321-qr-YfX" id="eMi-Bl-ozi"/>
                     </connections>
                 </viewController>

@@ -13,6 +13,7 @@ class LinkViewController: UIViewController, UIWebViewDelegate {
     var article: Article!
     
     @IBOutlet weak var webView: UIWebView!
+    @IBOutlet weak var playButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
