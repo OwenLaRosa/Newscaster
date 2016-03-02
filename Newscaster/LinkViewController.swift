@@ -8,11 +8,17 @@
 
 import UIKit
 
-class LinkViewController: UIViewController {
+class LinkViewController: UIViewController, UIWebViewDelegate {
     
     var article: Article!
     
     @IBOutlet weak var webView: UIWebView!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        webView.delegate = self
+    }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -28,6 +34,14 @@ class LinkViewController: UIViewController {
             let request = NSURLRequest(URL: url)
             self.webView.loadRequest(request)
         }
+    }
+    
+    func webViewDidFinishLoad(webView: UIWebView) {
+        // get the html body when loading is finished
+        // thanks to http://stackoverflow.com/questions/5167254/getting-the-html-source-code-of-a-loaded-uiwebview for the JavaScript expression
+        let html = webView.stringByEvaluatingJavaScriptFromString("document.body.innerHTML")
+        print(html)
+        // TODO: Extract article text from HTML
     }
     
 }
