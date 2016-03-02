@@ -23,12 +23,10 @@ class LinkViewController: UIViewController {
             // if the feed is a news result, then prepare the link
             link = HTMLScraper(html: "").getURLFromNewsLink(article.link)
         }
-        NewsClient().downloadData(link) {data, response, error in
-            if let htmlData = data {
-                if let htmlString = String(data: htmlData, encoding: NSUTF8StringEncoding) {
-                    self.webView.loadHTMLString(htmlString, baseURL: NSURL(string: self.article.link))
-                }
-            }
+        if let url = NSURL(string: link) {
+            // create a request from the url and load it
+            let request = NSURLRequest(URL: url)
+            self.webView.loadRequest(request)
         }
     }
     
