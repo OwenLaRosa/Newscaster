@@ -65,4 +65,22 @@ class HTMLScraper {
         return string
     }
     
+    /// Return an array containing the contents for each instance of the specified tag
+    func getContentsForTag(tag: String) -> [String] {
+        let startTag = "<\(tag)"
+        let endTag = "</\(tag)>"
+        var html = self.html
+        var tagContents = [String]()
+        
+        while let startRange = html.rangeOfString(startTag) {
+            if let endRange = html.rangeOfString(endTag) {
+                let range = Range(start: startRange.startIndex, end: endRange.startIndex)
+                let contents = html.substringWithRange(range)
+                tagContents.append(contents)
+                html = html.substringFromIndex(endRange.endIndex)
+            }
+        }
+        return tagContents
+    }
+    
 }
