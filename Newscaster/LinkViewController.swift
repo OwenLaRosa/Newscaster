@@ -38,6 +38,7 @@ class LinkViewController: UIViewController, UIWebViewDelegate {
             let request = NSURLRequest(URL: url)
             self.webView.loadRequest(request)
         }
+        loadPlainHTMLForUrl(link)
     }
     
     func webViewDidFinishLoad(webView: UIWebView) {
@@ -49,6 +50,19 @@ class LinkViewController: UIViewController, UIWebViewDelegate {
         
         // once that's done, enable the play button
         playButton.enabled = true
+    }
+    
+    /// Load HTML from the destination URL, parse the result, and assign it to the article entity
+    private func loadPlainHTMLForUrl(url: String) {
+        NewsClient().downloadData(url) {data, response, error in
+            if error != nil {
+                return
+            }
+            if let data = data {
+                let result = String(data: data, encoding: NSUTF8StringEncoding)
+                // TODO: parse html and assign to article
+            }
+        }
     }
     
 }
