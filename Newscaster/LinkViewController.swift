@@ -45,7 +45,7 @@ class LinkViewController: UIViewController, UIWebViewDelegate {
         // get the html body when loading is finished
         // thanks to http://stackoverflow.com/questions/5167254/getting-the-html-source-code-of-a-loaded-uiwebview for the JavaScript expression
         let html = webView.stringByEvaluatingJavaScriptFromString("document.body.innerHTML")
-        print(html)
+        // print(html)
         // TODO: Extract article text from HTML
         
         // once that's done, enable the play button
@@ -61,6 +61,10 @@ class LinkViewController: UIViewController, UIWebViewDelegate {
             if let data = data {
                 let result = String(data: data, encoding: NSUTF8StringEncoding)
                 // TODO: parse html and assign to article
+                for i in HTMLScraper(html: result!).getContentsForTag("p") {
+                    print("NEW ELEMENT")
+                    print(i)
+                }
             }
         }
     }
