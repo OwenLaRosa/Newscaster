@@ -16,11 +16,16 @@ class HTMLScraper {
         self.html = html
     }
     
-    /// Returns a string with all contents inbetween angle brackets removed
+    /// Returns a string with all contents inbetween angle brackets removed from the html string
     func removeAllTags() -> String {
+        return removeTagsFromString(html)
+    }
+    
+    /// Returns a string with all contents inbetween angle brackets removed
+    func removeTagsFromString(string: String) -> String {
         var result = ""
         var inTag = false
-        for i in html.characters {
+        for i in string.characters {
             if inTag {
                 if i == ">" {
                     inTag = false
