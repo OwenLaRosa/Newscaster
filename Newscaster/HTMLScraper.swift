@@ -85,7 +85,7 @@ class HTMLScraper {
                 html = html.substringFromIndex(endRange.endIndex)
             }
         }
-        return tagContents
+        return tagContents.map({removeTagsFromString($0)})
     }
     
 }
