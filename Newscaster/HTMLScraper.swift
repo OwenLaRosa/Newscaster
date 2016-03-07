@@ -100,6 +100,10 @@ class HTMLScraper {
             if forbidden.contains(i) {
                 continue
             }
+            // remove copyright lines
+            if i.hasPrefix("&copy;") {
+                continue
+            }
             result.append(i)
         }
         
