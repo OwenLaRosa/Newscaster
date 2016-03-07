@@ -88,4 +88,13 @@ class HTMLScraper {
         return tagContents.map({removeTagsFromString($0)})
     }
     
+    /// Return only the contents of the array that pertain to article text.
+    func filterArticleTextFromContents(contents: [String]) -> [String] {
+        // Note: the procedure used is certainly not ideal as it relies on guessing and assumptions but is good enough for an initial release.
+        // And hoping that the assumptions are accurate, it should work in the majority of cases.
+        let result = [String]()
+        
+        return result
+    }
+    
 }
