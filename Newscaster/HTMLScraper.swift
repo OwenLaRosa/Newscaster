@@ -104,6 +104,10 @@ class HTMLScraper {
             if i.hasPrefix("&copy;") {
                 continue
             }
+            // remove unreasonable whitespace
+            if i.containsString("        ") || i.containsString("\t\t") { // double tab characters
+                continue
+            }
             result.append(i)
         }
         
