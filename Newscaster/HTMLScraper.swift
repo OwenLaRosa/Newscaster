@@ -11,6 +11,8 @@ import Foundation
 class HTMLScraper {
     
     let html: String
+    /// Contents of tags that are never part of an article's main content
+    private let forbidden = ["Caption", "Close", "Advertisement"]
     
     init(html: String) {
         self.html = html
@@ -85,14 +87,21 @@ class HTMLScraper {
                 html = html.substringFromIndex(endRange.endIndex)
             }
         }
-        return tagContents.map({removeTagsFromString($0)})
+        return filterArticleTextFromContents(tagContents.map({removeTagsFromString($0)}))
     }
     
     /// Return only the contents of the array that pertain to article text.
     func filterArticleTextFromContents(contents: [String]) -> [String] {
         // Note: the procedure used is certainly not ideal as it relies on guessing and assumptions but is good enough for an initial release.
         // And hoping that the assumptions are accurate, it should work in the majority of cases.
-        let result = [String]()
+        var result = [String]()
+        
+        for i in contents {
+            if forbidden.contains(i) {
+                continue
+            }
+            result.append(i)
+        }
         
         return result
     }
