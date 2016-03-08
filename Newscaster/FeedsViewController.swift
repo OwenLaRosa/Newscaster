@@ -94,6 +94,10 @@ class FeedsViewController: UIViewController, UITableViewDataSource, UITableViewD
         }
     }
     
+    @IBAction func editTapped(sender: UIBarButtonItem) {
+        tableView.setEditing(!tableView.editing, animated: true)
+    }
+    
     lazy var fetchedResultsController: NSFetchedResultsController = {
         let fetchRequest = NSFetchRequest(entityName: "Feed")
         fetchRequest.sortDescriptors = []
