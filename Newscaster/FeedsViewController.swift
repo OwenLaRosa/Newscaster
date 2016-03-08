@@ -59,6 +59,15 @@ class FeedsViewController: UIViewController, UITableViewDataSource, UITableViewD
         return cell
     }
     
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == .Delete {
+            let feed = root.feeds[indexPath.row] as! Feed
+            sharedContext.deleteObject(feed)
+            saveContext()
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+        }
+    }
+    
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         //let feed = fetchedResultsController.objectAtIndexPath(indexPath)
         if let feed = root.feeds[indexPath.row] as? Feed {
