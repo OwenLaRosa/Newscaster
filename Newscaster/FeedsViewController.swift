@@ -68,6 +68,17 @@ class FeedsViewController: UIViewController, UITableViewDataSource, UITableViewD
         }
     }
     
+    func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(tableView: UITableView, moveRowAtIndexPath sourceIndexPath: NSIndexPath, toIndexPath destinationIndexPath: NSIndexPath) {
+        let object = root.feeds.objectAtIndex(sourceIndexPath.row)
+        root.feeds.removeObjectAtIndex(sourceIndexPath.row)
+        root.feeds.insertObject(object, atIndex: destinationIndexPath.row)
+        saveContext()
+    }
+    
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         //let feed = fetchedResultsController.objectAtIndexPath(indexPath)
         if let feed = root.feeds[indexPath.row] as? Feed {
