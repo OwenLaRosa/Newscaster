@@ -195,7 +195,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Newscaster" id="vJ4-cq-YGy">
-                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="rnP-I0-bvT">
+                        <barButtonItem key="leftBarButtonItem" title="Edit" id="rnP-I0-bvT">
                             <connections>
                                 <action selector="editTapped:" destination="BYZ-38-t0r" id="0tU-VE-V3o"/>
                             </connections>

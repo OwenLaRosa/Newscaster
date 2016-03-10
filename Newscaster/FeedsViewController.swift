@@ -95,6 +95,11 @@ class FeedsViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     @IBAction func editTapped(sender: UIBarButtonItem) {
+        if tableView.editing {
+            sender.title = "Edit"
+        } else {
+            sender.title = "Done"
+        }
         tableView.setEditing(!tableView.editing, animated: true)
     }
     
