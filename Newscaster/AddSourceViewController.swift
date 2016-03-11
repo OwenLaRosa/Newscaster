@@ -37,7 +37,7 @@ class AddSourceViewController: UIViewController {
                 // otherwise, the text entry becomes the search query
                 query = nameField.text
             }
-            let feed = Feed(name: name, type: type, query: query, url: link, context: sharedContext)
+            let feed = Feed(name: name, type: type, query: query, url: link, index: 0, context: sharedContext)
             root.feeds.insertObject(feed, atIndex: 0)
             feed.root = root
             saveContext()

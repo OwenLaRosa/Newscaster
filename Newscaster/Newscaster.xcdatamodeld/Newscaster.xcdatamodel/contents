@@ -11,6 +11,7 @@
         <relationship name="feed" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Feed" inverseName="articles" inverseEntity="Feed" syncable="YES"/>
     </entity>
     <entity name="Feed" representedClassName=".Feed" syncable="YES">
+        <attribute name="index" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="lastUpdated" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="query" optional="YES" attributeType="String" syncable="YES"/>
@@ -24,7 +25,7 @@
     </entity>
     <elements>
         <element name="Article" positionX="-54" positionY="0" width="128" height="165"/>
-        <element name="Feed" positionX="-63" positionY="-18" width="128" height="150"/>
+        <element name="Feed" positionX="-63" positionY="-18" width="128" height="165"/>
         <element name="Root" positionX="-63" positionY="63" width="128" height="60"/>
     </elements>
 </model>

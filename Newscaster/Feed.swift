@@ -23,6 +23,8 @@ import CoreData
     @NSManaged var url: String?
     /// The last time that the feed was refreshed
     @NSManaged var lastUpdated: NSDate
+    /// Location of a feed in relation to all other feeds for sorting purposes
+    @NSManaged var index: Int
     
     // relationships
     
@@ -35,7 +37,7 @@ import CoreData
         super.init(entity: entity, insertIntoManagedObjectContext: context)
     }
     
-    init(name: String, type: String, query: String?, url: String?, context: NSManagedObjectContext) {
+    init(name: String, type: String, query: String?, url: String?, index: Int, context: NSManagedObjectContext) {
         let entity = NSEntityDescription.entityForName("Feed", inManagedObjectContext: context)!
         
         super.init(entity: entity, insertIntoManagedObjectContext: context)
@@ -44,6 +46,7 @@ import CoreData
         self.type = type
         self.query = query
         self.url = url
+        self.index = index
     }
     
 }
