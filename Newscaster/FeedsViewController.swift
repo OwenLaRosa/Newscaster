@@ -88,9 +88,19 @@ class FeedsViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         super.prepareForSegue(segue, sender: sender)
-        if let feed = sender as? Feed {
-            let destination = segue.destinationViewController as! ArticlesViewController
-            destination.feed = feed
+        if segue.identifier == "ShowArticles" {
+            if let feed = sender as? Feed {
+                let destination = segue.destinationViewController as! ArticlesViewController
+                destination.feed = feed
+            }
+        } else if segue.identifier == "AddSource" {
+            let destination = segue.destinationViewController as! AddSourceViewController
+            // first object should contain the highest index
+            if let index = (fetchedResultsController.fetchedObjects?.first as? Feed)?.index {
+                // 1 more than the highest index
+                (destination.index = index + 1)
+            }
+            // if there aren't any objects, the default index of 0 will be used
         }
     }
     
