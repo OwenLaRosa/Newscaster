@@ -73,10 +73,18 @@ class FeedsViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     func tableView(tableView: UITableView, moveRowAtIndexPath sourceIndexPath: NSIndexPath, toIndexPath destinationIndexPath: NSIndexPath) {
-        let object = fetchedResultsController.objectAtIndexPath(sourceIndexPath) //root.feeds.objectAtIndex(sourceIndexPath.row)
-        root.feeds.removeObjectAtIndex(sourceIndexPath.row)
-        root.feeds.insertObject(object, atIndex: destinationIndexPath.row)
+        let sourceFeed = fetchedResultsController.objectAtIndexPath(sourceIndexPath) as! Feed
+        let sourceIndex = sourceFeed.index
+        let destinationFeed = fetchedResultsController.objectAtIndexPath(destinationIndexPath) as! Feed
+        let destinationIndex = destinationFeed.index
+        sourceFeed.index = destinationIndex
+        destinationFeed.index = sourceIndex
         saveContext()
+        print("CHANGED")
+        for i in fetchedResultsController.fetchedObjects! {
+            let feed = i as! Feed
+            print("\(feed.name): \(feed.index)")
+        }
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -127,23 +135,23 @@ class FeedsViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     func controller(controller: NSFetchedResultsController, didChangeObject anObject: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
-        switch type {
+        /*switch type {
         case .Insert:
             insertedIndexPaths.append(newIndexPath!)
         case .Delete:
             deletedIndexPaths.append(indexPath!)
         default:
             return
-        }
+        }*/
     }
     
     func controllerDidChangeContent(controller: NSFetchedResultsController) {
-        tableView.beginUpdates()
+        /*tableView.beginUpdates()
         tableView.insertRowsAtIndexPaths(insertedIndexPaths, withRowAnimation: .Fade)
         tableView.deleteRowsAtIndexPaths(deletedIndexPaths, withRowAnimation: .Fade)
         tableView.endUpdates()
         
-        saveContext()
+        saveContext()*/
     }
 
 }
