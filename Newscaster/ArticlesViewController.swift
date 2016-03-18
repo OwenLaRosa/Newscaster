@@ -14,6 +14,7 @@ class ArticlesViewController: UIViewController, UITableViewDataSource, UITableVi
     @IBOutlet weak var tableView: UITableView!
     
     @IBOutlet weak var refreshButton: UIBarButtonItem!
+    var refreshControl: UIRefreshControl!
     
     var feed: Feed!
     var articles = [Article]()
@@ -22,6 +23,12 @@ class ArticlesViewController: UIViewController, UITableViewDataSource, UITableVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // add refresh control to the table view
+        refreshControl = UIRefreshControl()
+        refreshControl.attributedTitle = NSAttributedString(string: "Reloading Data...")
+        refreshControl.addTarget(self, action: "loadContent", forControlEvents: .ValueChanged)
+        tableView.addSubview(refreshControl)
         
         fetchedResultsController.delegate = self
         do {
