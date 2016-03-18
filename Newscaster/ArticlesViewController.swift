@@ -158,6 +158,7 @@ class ArticlesViewController: UIViewController, UITableViewDataSource, UITableVi
         NewsClient().getFeedForRSS(feed.url!) {result, error in
             if let returnedArticles = result {
                 dispatch_async(dispatch_get_main_queue()) {
+                    self.refreshControl.endRefreshing()
                     self.updateArticleList(withArticles: returnedArticles)
                     self.tableView.reloadData()
                 }
@@ -189,6 +190,7 @@ class ArticlesViewController: UIViewController, UITableViewDataSource, UITableVi
         NewsClient().getFeedForTerm(feed.query!) {result, error in
             if let returnedArticles = result {
                 dispatch_async(dispatch_get_main_queue()) {
+                    self.refreshControl.endRefreshing()
                     self.updateArticleList(withArticles: returnedArticles)
                     self.tableView.reloadData()
                 }
