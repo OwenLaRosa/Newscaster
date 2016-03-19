@@ -17,6 +17,7 @@
 		5A9F95CC1C5E7D9100344129 /* AddSourceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9F95CB1C5E7D9100344129 /* AddSourceViewController.swift */; };
 		5A9F95CE1C5E7E9700344129 /* FeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9F95CD1C5E7E9700344129 /* FeedTableViewCell.swift */; };
 		5A9F95D01C5E7EA900344129 /* ArticleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9F95CF1C5E7EA900344129 /* ArticleTableViewCell.swift */; };
+		5ADD32AE1C9DAE0C00B5B303 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5ADD32AD1C9DAE0C00B5B303 /* iAd.framework */; };
 		5AF66C5D1C54004A00659CE9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF66C5C1C54004A00659CE9 /* AppDelegate.swift */; };
 		5AF66C5F1C54004A00659CE9 /* FeedsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF66C5E1C54004A00659CE9 /* FeedsViewController.swift */; };
 		5AF66C621C54004A00659CE9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AF66C601C54004A00659CE9 /* Main.storyboard */; };
@@ -56,6 +57,7 @@
 		5A9F95CB1C5E7D9100344129 /* AddSourceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddSourceViewController.swift; sourceTree = "<group>"; };
 		5A9F95CD1C5E7E9700344129 /* FeedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedTableViewCell.swift; sourceTree = "<group>"; };
 		5A9F95CF1C5E7EA900344129 /* ArticleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleTableViewCell.swift; sourceTree = "<group>"; };
+		5ADD32AD1C9DAE0C00B5B303 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		5AF66C591C54004A00659CE9 /* Newscaster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Newscaster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AF66C5C1C54004A00659CE9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5AF66C5E1C54004A00659CE9 /* FeedsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedsViewController.swift; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5ADD32AE1C9DAE0C00B5B303 /* iAd.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,6 +122,7 @@
 		5AF66C501C54004900659CE9 = {
 			isa = PBXGroup;
 			children = (
+				5ADD32AD1C9DAE0C00B5B303 /* iAd.framework */,
 				5AF66C5B1C54004A00659CE9 /* Newscaster */,
 				5AF66C731C54004A00659CE9 /* NewscasterTests */,
 				5AF66C7E1C54004A00659CE9 /* NewscasterUITests */,
