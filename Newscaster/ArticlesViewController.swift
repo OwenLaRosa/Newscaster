@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import iAd
 
 class ArticlesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate {
     
@@ -23,6 +24,8 @@ class ArticlesViewController: UIViewController, UITableViewDataSource, UITableVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        canDisplayBannerAds = true
         
         // add refresh control to the table view
         refreshControl = UIRefreshControl()

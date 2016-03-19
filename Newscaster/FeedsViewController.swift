@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import iAd
 
 class FeedsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate {
     
@@ -20,6 +21,8 @@ class FeedsViewController: UIViewController, UITableViewDataSource, UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        canDisplayBannerAds = true
+        
         fetchedResultsController.delegate = self
         do {
             try fetchedResultsController.performFetch()

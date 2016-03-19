@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import iAd
 
 class LinkViewController: UIViewController, UIWebViewDelegate {
     
@@ -17,6 +18,8 @@ class LinkViewController: UIViewController, UIWebViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        canDisplayBannerAds = true
         
         webView.delegate = self
     }
