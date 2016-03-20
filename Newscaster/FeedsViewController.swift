@@ -53,11 +53,8 @@ class FeedsViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("FeedTableViewCell")! as! FeedTableViewCell
-        //let feed = root.feeds.objectAtIndex(indexPath.row) as! Feed
-        let feed = fetchedResultsController.objectAtIndexPath(indexPath) as! Feed
         
-        cell.feedNameLabel.text = feed.name
-        cell.feedDescriptionLabel.text = feed.url ?? feed.query
+        cell.feed = fetchedResultsController.objectAtIndexPath(indexPath) as! Feed
         
         return cell
     }
