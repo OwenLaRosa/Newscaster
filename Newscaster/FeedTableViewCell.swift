@@ -13,4 +13,11 @@ class FeedTableViewCell: UITableViewCell {
     @IBOutlet weak var feedNameLabel: UILabel!
     @IBOutlet weak var feedDescriptionLabel: UILabel!
     
+    var feed: Feed! {
+        didSet {
+            feedNameLabel.text = feed.name
+            feedDescriptionLabel.text = feed.url ?? feed.query
+        }
+    }
+    
 }
