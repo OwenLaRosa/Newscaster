@@ -108,6 +108,11 @@ class HTMLScraper {
             if i.containsString("        ") || i.containsString("\t\t") { // double tab characters
                 continue
             }
+            // remove non-sentence like content (no periods)
+            // generally includes tags, links or other unneeded information
+            if !i.containsString(".") && !i.containsString(":") { // check for colons in section headers
+                continue
+            }
             result.append(i)
         }
         
