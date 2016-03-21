@@ -119,4 +119,49 @@ class HTMLScraper {
         return result
     }
     
+    /// Ampersand codes used by HTML and their conversions into plain text form. Some codes are not included because they do not have a text equivalent.
+    private let allowedAmpersandCodes = [
+        // double quote
+        "&quot;" : "\"",
+        // ampersand
+        "&amp;" : "&",
+        // comparison operators
+        "&lt;" : "<",
+        "&gt;" : ">",
+        // currencies
+        "&cent;" : "cent",
+        "&pound;" : "pound",
+        "&curren;" : "currency",
+        "&yen;" : "yen",
+        // legal symbols
+        "&copy;" : "Copyright",
+        "&reg;" : "Registered",
+        // mathematics symbols
+        "&deg;" : "degrees",
+        "&plusmn;" : "plus or minus",
+        "&frac12;" : "one half",
+        "&frac14;" : "one fourth",
+        "&frac34" : "three fourths",
+        "&times;" : "×",
+        "&divide;" : "÷",
+        // eth and thorn from Middle English
+        "&ETH;" : "Th",
+        "&eth;" : "th",
+        "&THORN;" : "Th",
+        "&thorn;" : "th",
+        // typographic ligatures
+        "&AElig;" : "Æ",
+        "&aelig;" : "æ",
+        "&OElig;" : "Œ",
+        "&oelig;" : "œ",
+        // some foreign symbols and accents
+        "&Aring;" : "Å",
+        "&Oslash;" : "Ø",
+        "&Ccedil;" : "Ç",
+        "&ccedil;" : "ç",
+        "&szlig;" : "ß",
+        "&Ntilde;" : "Ñ",
+        "&ntilde;" : "ñ",
+    ]
+    
 }
