@@ -91,10 +91,19 @@ class HTMLScraper {
     }
     
     /// Return only the contents of the array that pertain to article text.
-    func filterArticleTextFromContents(contents: [String]) -> [String] {
+    func filterArticleTextFromContents(var contents: [String]) -> [String] {
         // Note: the procedure used is certainly not ideal as it relies on guessing and assumptions but is good enough for an initial release.
         // And hoping that the assumptions are accurate, it should work in the majority of cases.
         var result = [String]()
+        
+        // replace all allowed ampersand codes in each string with their text equivalents
+        contents = contents.map() {
+            var newString = $0
+            for i in allowedAmpersandCodes.keys {
+                newString = newString.stringByReplacingOccurrencesOfString(i, withString: self.allowedAmpersandCodes[i]!)
+            }
+            return newString
+        }
         
         for i in contents {
             if forbidden.contains(i) {
