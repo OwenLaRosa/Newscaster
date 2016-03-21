@@ -130,8 +130,9 @@ class HTMLScraper {
     
     /// Ampersand codes used by HTML and their conversions into plain text form. Some codes are not included because they do not have a text equivalent.
     private let allowedAmpersandCodes = [
-        // double quote
+        // quotes
         "&quot;" : "\"",
+        "&#39;": "'",
         // ampersand
         "&amp;" : "&",
         // comparison operators
