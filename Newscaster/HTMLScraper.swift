@@ -113,8 +113,8 @@ class HTMLScraper {
             if forbidden.contains(i) {
                 continue
             }
-            // remove copyright lines
-            if i.hasPrefix("&copy;") {
+            // remove copyright lines where &copy; has already been replaced
+            if i.hasPrefix("Copyright Copyright") {
                 continue
             }
             // remove unreasonable whitespace
