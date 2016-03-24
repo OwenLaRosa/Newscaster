@@ -73,18 +73,23 @@ class FeedsViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     func tableView(tableView: UITableView, moveRowAtIndexPath sourceIndexPath: NSIndexPath, toIndexPath destinationIndexPath: NSIndexPath) {
-        let sourceFeed = fetchedResultsController.objectAtIndexPath(sourceIndexPath) as! Feed
-        let sourceIndex = sourceFeed.index
-        let destinationFeed = fetchedResultsController.objectAtIndexPath(destinationIndexPath) as! Feed
-        let destinationIndex = destinationFeed.index
-        sourceFeed.index = destinationIndex
-        destinationFeed.index = sourceIndex
-        saveContext()
-        print("CHANGED")
-        for i in fetchedResultsController.fetchedObjects! {
-            let feed = i as! Feed
-            print("\(feed.name): \(feed.index)")
+        let sourceFeed = (tableView.cellForRowAtIndexPath(sourceIndexPath) as! FeedTableViewCell).feed
+        print("moving: \(sourceFeed.name)")
+        // equal to the count since feeds are displayed in descending order by index
+        var nextIndex = fetchedResultsController.fetchedObjects?.count ?? 0
+        for i in fetchedResultsController.fetchedObjects as! [Feed] {
+            if i == sourceFeed {
+                sourceFeed.index = destinationIndexPath.row
+                continue
+            }
+            if ((fetchedResultsController.fetchedObjects?.count ?? 0) - nextIndex) == destinationIndexPath.row {
+                nextIndex--
+                continue
+            }
+            i.index = nextIndex
+            nextIndex--
         }
+        saveContext()
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
