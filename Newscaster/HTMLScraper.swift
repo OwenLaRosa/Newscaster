@@ -87,6 +87,10 @@ class HTMLScraper {
                 html = html.substringFromIndex(endRange.endIndex)
             }
         }
+        // remove contents that are simply a hyperlink (in most cases, links to related articles)
+        tagContents = tagContents.filter() {
+            return !$0.hasPrefix("<a href") && !$0.hasSuffix("</a>")
+        }
         return filterArticleTextFromContents(tagContents.map({removeTagsFromString($0)}))
     }
     
