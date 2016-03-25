@@ -19,6 +19,8 @@ class AddSourceViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
+        nameField.delegate = self
+        linkField.delegate = self
         nameField.becomeFirstResponder()
     }
     
@@ -76,6 +78,22 @@ class AddSourceViewController: UIViewController {
         
         if let _ = text.rangeOfString(pattern, options: .RegularExpressionSearch) {
             return true
+        }
+        return false
+    }
+    
+}
+
+extension AddSourceViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        if textField == nameField {
+            // move cursor to the next text field
+            linkField.becomeFirstResponder()
+        }
+        if textField == linkField {
+            // call add feed button's method, initializing UIButton for sender parameter
+            addFeed(UIButton())
         }
         return false
     }
