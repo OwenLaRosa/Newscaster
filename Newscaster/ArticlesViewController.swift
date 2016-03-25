@@ -150,7 +150,7 @@ class ArticlesViewController: UIViewController, UITableViewDataSource, UITableVi
         switch feed.type {
         case "rss" :
             loadRSSArticles()
-        case "bing" :
+        case "News" :
             loadNewsArticles()
         default:
             break

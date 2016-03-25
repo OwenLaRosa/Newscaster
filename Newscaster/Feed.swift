@@ -15,7 +15,7 @@ import CoreData
     
     /// Name of the feed specified by the user.
     @NSManaged var name: String
-    /// The type of feed (e.g. RSS, atom, bing)
+    /// The type of feed (e.g. RSS, atom, news)
     @NSManaged var type: String
     /// The search term for the feed
     @NSManaged var query: String?

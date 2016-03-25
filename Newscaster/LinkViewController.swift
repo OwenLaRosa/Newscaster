@@ -32,7 +32,7 @@ class LinkViewController: UIViewController, UIWebViewDelegate {
         
         navigationItem.title = article.title
         var link = article.link
-        if article.feed.type == "bing" {
+        if article.feed.type == "News" {
             // if the feed is a news result, then prepare the link
             link = HTMLScraper(html: "").getURLFromNewsLink(article.link)
         }
