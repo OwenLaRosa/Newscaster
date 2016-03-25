@@ -148,7 +148,7 @@ class ArticlesViewController: UIViewController, UITableViewDataSource, UITableVi
         print("loadContent")
         // determine the content type
         switch feed.type {
-        case "rss" :
+        case "RSS" :
             loadRSSArticles()
         case "News" :
             loadNewsArticles()
