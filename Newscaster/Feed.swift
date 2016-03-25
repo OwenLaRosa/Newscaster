@@ -30,8 +30,6 @@ import CoreData
     
     /// News articles associated with the feed (individual articles)
     @NSManaged var articles: NSMutableSet
-    /// Root entity of the feed
-    @NSManaged var root: Root
     
     override init(entity: NSEntityDescription, insertIntoManagedObjectContext context: NSManagedObjectContext?) {
         super.init(entity: entity, insertIntoManagedObjectContext: context)

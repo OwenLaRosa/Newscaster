@@ -48,7 +48,6 @@ class FeedsViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return fetchedResultsController.fetchedObjects?.count ?? 0
-        //return root.feeds.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -61,7 +60,7 @@ class FeedsViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
-            let feed = fetchedResultsController.objectAtIndexPath(indexPath) as! Feed //root.feeds[indexPath.row] as! Feed
+            let feed = fetchedResultsController.objectAtIndexPath(indexPath) as! Feed
             sharedContext.deleteObject(feed)
             saveContext()
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
@@ -129,7 +128,6 @@ class FeedsViewController: UIViewController, UITableViewDataSource, UITableViewD
     lazy var fetchedResultsController: NSFetchedResultsController = {
         let fetchRequest = NSFetchRequest(entityName: "Feed")
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "index", ascending: false)]
-        //fetchRequest.predicate = NSPredicate(format: "root == %@", root)
         let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: sharedContext, sectionNameKeyPath: nil, cacheName: nil)
         return fetchedResultsController
     }()
