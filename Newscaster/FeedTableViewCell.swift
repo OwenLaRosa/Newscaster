@@ -16,7 +16,7 @@ class FeedTableViewCell: UITableViewCell {
     var feed: Feed! {
         didSet {
             feedNameLabel.text = feed.name
-            feedDescriptionLabel.text = feed.url ?? feed.query
+            feedDescriptionLabel.text = "\(feed.type): \(feed.url ?? feed.query!)"
         }
     }
     
