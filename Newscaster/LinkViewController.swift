@@ -16,12 +16,15 @@ class LinkViewController: UIViewController, UIWebViewDelegate {
     @IBOutlet weak var webView: UIWebView!
     @IBOutlet weak var playButton: UIBarButtonItem!
     
+    var newsAnchor: NewsAnchor!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         canDisplayBannerAds = true
         
         webView.delegate = self
+        newsAnchor = NewsAnchor()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -63,13 +66,18 @@ class LinkViewController: UIViewController, UIWebViewDelegate {
             }
             if let data = data {
                 let result = String(data: data, encoding: NSUTF8StringEncoding)
-                // TODO: parse html and assign to article
-                for i in HTMLScraper(html: result!).getContentsForTag("p") {
-                    print("NEW ELEMENT")
-                    print(i)
-                }
+                // parse the result and assign it to the news anchor
+                self.newsAnchor.stringToSpeak = HTMLScraper(html: result!).getContentsForTag("p").joinWithSeparator(" ")
             }
         }
+    }
+    
+    @IBAction func didPressPlay(sender: UIBarButtonItem) {
+        // disable the play button
+        // TODO: Turn it into a pause button
+        playButton.enabled = false
+        // start speaking the article
+        newsAnchor.startSpeaking()
     }
     
 }
