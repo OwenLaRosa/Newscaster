@@ -29,7 +29,7 @@ public class NewsAnchor: AVSpeechSynthesizer {
     
     /// Start speaking the string from the beginning.
     public func startSpeaking() {
-        
+        speakAtIndex(0)
     }
     
     /// Pause currently active speech
