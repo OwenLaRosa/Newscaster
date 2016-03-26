@@ -8,6 +8,24 @@
 
 import AVFoundation
 
-class NewsAnchor: AVSpeechSynthesizer {
+public class NewsAnchor: AVSpeechSynthesizer {
+    
+    /// String that will be spoken
+    var stringToSpeak: String!
+    
+    /// Start speaking the string from the beginning.
+    public func startSpeaking() {
+        
+    }
+    
+    /// Pause currently active speech
+    public func pauseSpeaking() {
+        
+    }
+    
+    /// Resume speech from the point in which is was paused
+    public func resumeSpeaking() {
+        
+    }
     
 }
