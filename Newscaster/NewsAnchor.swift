@@ -53,7 +53,7 @@ public class NewsAnchor: AVSpeechSynthesizer {
         let word = words[index]
         let utterance = AVSpeechUtterance(string: word)
         // use the iOS "Daniel" voice
-        utterance.voice = AVSpeechSynthesisVoice(language: "en-uk")
+        utterance.voice = AVSpeechSynthesisVoice(language: "en-GB")
         speakUtterance(utterance)
     }
     
