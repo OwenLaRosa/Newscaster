@@ -21,6 +21,12 @@ public class NewsAnchor: AVSpeechSynthesizer {
     /// Index of the word to be spoken
     var speechIndex = 0
     
+    override init() {
+        super.init()
+        
+        delegate = self
+    }
+    
     /// Start speaking the string from the beginning.
     public func startSpeaking() {
         
@@ -49,6 +55,16 @@ public class NewsAnchor: AVSpeechSynthesizer {
         // use the iOS "Daniel" voice
         utterance.voice = AVSpeechSynthesisVoice(language: "en-uk")
         speakUtterance(utterance)
+    }
+    
+}
+
+extension NewsAnchor: AVSpeechSynthesizerDelegate {
+    
+    public func speechSynthesizer(synthesizer: AVSpeechSynthesizer, didFinishSpeechUtterance utterance: AVSpeechUtterance) {
+        // go to the next word
+        speechIndex++
+        speakAtIndex(speechIndex)
     }
     
 }
