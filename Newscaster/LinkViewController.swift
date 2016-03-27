@@ -17,6 +17,8 @@ class LinkViewController: UIViewController, UIWebViewDelegate {
     @IBOutlet weak var playButton: UIBarButtonItem!
     
     var newsAnchor: NewsAnchor!
+    /// true if this instance of the view has already appeared, otherwise false
+    var firstAppeared = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +37,10 @@ class LinkViewController: UIViewController, UIWebViewDelegate {
         
         navigationItem.title = article.title
         var link = article.link
+        if !firstAppeared {
+            // article has already been loaded, no need to load it again
+            return
+        }
         if article.feed.type == "News" {
             // if the feed is a news result, then prepare the link
             link = HTMLScraper(html: "").getURLFromNewsLink(article.link)
@@ -65,6 +71,8 @@ class LinkViewController: UIViewController, UIWebViewDelegate {
                 return
             }
             if let data = data {
+                // data has been downloaded, prevent redownloads when view appears
+                self.firstAppeared = false
                 let result = String(data: data, encoding: NSUTF8StringEncoding)
                 // parse the result and assign it to the news anchor
                 self.newsAnchor.stringToSpeak = HTMLScraper(html: result!).getContentsForTag("p").joinWithSeparator(" ")
