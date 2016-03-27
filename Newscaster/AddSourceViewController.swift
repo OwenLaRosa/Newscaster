@@ -19,9 +19,19 @@ class AddSourceViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
+        // view's background is white, make sure the text is readable
+        UIApplication.sharedApplication().setStatusBarStyle(.Default, animated: false)
+        
         nameField.delegate = self
         linkField.delegate = self
         nameField.becomeFirstResponder()
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        // reset status bar style when view dismisses
+        UIApplication.sharedApplication().setStatusBarStyle(.LightContent, animated: false)
     }
     
     @IBAction func addFeed(sender: UIButton) {
