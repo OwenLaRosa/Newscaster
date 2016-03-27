@@ -126,6 +126,10 @@ class HTMLScraper {
             if !i.containsString(".") && !i.containsString(":") { // check for colons in section headers
                 continue
             }
+            if i.lowercaseString.hasPrefix("click for more") || i.lowercaseString.hasPrefix("click here for more") {
+                // common title for external link, not part of the article
+                continue
+            }
             result.append(i)
         }
         
