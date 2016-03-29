@@ -29,7 +29,10 @@ public class NewsAnchor: AVSpeechSynthesizer {
     
     /// Start speaking the string from the beginning.
     public func startSpeaking() {
-        speakAtIndex(0)
+        let utterance = AVSpeechUtterance(string: stringToSpeak)
+        // use the iOS "Daniel" voice
+        utterance.voice = AVSpeechSynthesisVoice(language: "en-GB")
+        speakUtterance(utterance)
     }
     
     /// Pause currently active speech
