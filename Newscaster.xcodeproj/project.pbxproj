@@ -286,6 +286,11 @@
 					5AF66C581C54004A00659CE9 = {
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = GVEP366428;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					5AF66C6F1C54004A00659CE9 = {
 						CreatedOnToolsVersion = 7.2;
