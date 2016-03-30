@@ -85,11 +85,17 @@ class LinkViewController: UIViewController, UIWebViewDelegate {
         // disable the play button
         // TODO: Turn it into a pause button
         playButton.enabled = false
-        // start speaking the article
-        newsAnchor.startSpeaking()
+        if newsAnchor.speaking {
+            // resume speaking the article
+            newsAnchor.resumeSpeaking()
+        } else {
+            // start speaking the article
+            newsAnchor.startSpeaking()
+        }
     }
     
     @IBAction func didPressPause(sender: UIBarButtonItem) {
+        newsAnchor.pauseSpeaking()
     }
     
 }
