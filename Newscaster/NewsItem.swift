@@ -10,9 +10,9 @@ import Foundation
 
 struct NewsItem {
     
-    let title: String
-    let description: String
-    let link: String
+    var title: String
+    var description: String
+    var link: String
     var date: NSDate {
         let formatter = NSDateFormatter()
         formatter.dateFormat = "EEE, dd MMM yyyy HH:mm:ss zzz"
@@ -45,8 +45,34 @@ struct NewsItem {
         self.source = bing["Source"] as? String ?? ""
     }
     
-    
-    
-    
+    init(atom: [String: AnyObject]) {
+        // ensure all variables are guaranteed a value
+        self.title = ""
+        self.description = ""
+        self.link = ""
+        self.dateString = ""
+        self.source = ""
+        // assign the actual values
+        if let title = atom["title"] as? [String: String] {
+            self.title = title["content"] ?? ""
+        }
+        if let content = atom["content"] as? [String: String] {
+            let description = content["content"] ?? ""
+            if content["type"] == "html" {
+                self.description = HTMLScraper(html: description).removeAllTags()
+            }
+        }
+        if let link = atom["link"] as? [[String: String]] {
+            for i in link {
+                if let title = i["title"] {
+                    // determine if this is an actual web page
+                    // some services like Blogger will also link to comments
+                    if title.hasSuffix("html") {
+                        self.link = i["href"] ?? ""
+                    }
+                }
+            }
+        }
+    }
     
 }
