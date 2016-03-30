@@ -34,6 +34,8 @@ class LinkViewController: UIViewController, UIWebViewDelegate {
         super.viewWillAppear(animated)
         
         // play button should be disabled to begin with
+        navigationItem.rightBarButtonItems?.removeAll()
+        navigationItem.rightBarButtonItem = playButton
         playButton.enabled = false
         
         navigationItem.title = article.title
