@@ -4,6 +4,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -344,14 +345,23 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Title of Article" id="ITm-WR-dP7">
-                        <barButtonItem key="rightBarButtonItem" systemItem="play" id="yq9-Xh-O4P">
-                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            <connections>
-                                <action selector="didPressPlay:" destination="vLc-Ur-A8X" id="5hN-HV-FHV"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="play" id="yq9-Xh-O4P">
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="didPressPlay:" destination="vLc-Ur-A8X" id="5hN-HV-FHV"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="pause" id="peV-Y1-4vh">
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="didPressPause:" destination="vLc-Ur-A8X" id="EP2-Lg-bA7"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
+                        <outlet property="pauseButton" destination="peV-Y1-4vh" id="MSP-Ve-G5L"/>
                         <outlet property="playButton" destination="yq9-Xh-O4P" id="YPP-af-EmS"/>
                         <outlet property="webView" destination="321-qr-YfX" id="eMi-Bl-ozi"/>
                     </connections>

@@ -15,6 +15,7 @@ class LinkViewController: UIViewController, UIWebViewDelegate {
     
     @IBOutlet weak var webView: UIWebView!
     @IBOutlet weak var playButton: UIBarButtonItem!
+    @IBOutlet weak var pauseButton: UIBarButtonItem!
     
     var newsAnchor: NewsAnchor!
     /// true if this instance of the view has already appeared, otherwise false
@@ -86,6 +87,9 @@ class LinkViewController: UIViewController, UIWebViewDelegate {
         playButton.enabled = false
         // start speaking the article
         newsAnchor.startSpeaking()
+    }
+    
+    @IBAction func didPressPause(sender: UIBarButtonItem) {
     }
     
 }
