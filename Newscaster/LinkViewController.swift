@@ -14,8 +14,8 @@ class LinkViewController: UIViewController, UIWebViewDelegate {
     var article: Article!
     
     @IBOutlet weak var webView: UIWebView!
-    @IBOutlet weak var playButton: UIBarButtonItem!
-    @IBOutlet weak var pauseButton: UIBarButtonItem!
+    @IBOutlet var playButton: UIBarButtonItem!
+    @IBOutlet var pauseButton: UIBarButtonItem!
     
     var newsAnchor: NewsAnchor!
     /// true if this instance of the view has already appeared, otherwise false
@@ -82,9 +82,9 @@ class LinkViewController: UIViewController, UIWebViewDelegate {
     }
     
     @IBAction func didPressPlay(sender: UIBarButtonItem) {
-        // disable the play button
-        // TODO: Turn it into a pause button
-        playButton.enabled = false
+        // turn it into a pause button
+        navigationItem.rightBarButtonItems?.removeAll()
+        navigationItem.rightBarButtonItem = pauseButton
         if newsAnchor.speaking {
             // resume speaking the article
             newsAnchor.resumeSpeaking()
@@ -95,6 +95,9 @@ class LinkViewController: UIViewController, UIWebViewDelegate {
     }
     
     @IBAction func didPressPause(sender: UIBarButtonItem) {
+        // turn it into a play button
+        navigationItem.rightBarButtonItems?.removeAll()
+        navigationItem.rightBarButtonItem = playButton
         newsAnchor.pauseSpeaking()
     }
     
