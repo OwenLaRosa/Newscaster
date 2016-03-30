@@ -37,12 +37,12 @@ public class NewsAnchor: AVSpeechSynthesizer {
     
     /// Pause currently active speech
     public func pauseSpeaking() {
-        
+        pauseSpeakingAtBoundary(.Word)
     }
     
     /// Resume speech from the point in which is was paused
     public func resumeSpeaking() {
-        
+        continueSpeaking()
     }
     
     /// Speak the word at the next index
