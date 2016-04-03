@@ -56,6 +56,12 @@ class LinkViewController: UIViewController, UIWebViewDelegate {
         loadPlainHTMLForUrl(link)
     }
     
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        newsAnchor.pauseSpeaking()
+    }
+    
     func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
         if navigationType == .LinkClicked {
             return false
