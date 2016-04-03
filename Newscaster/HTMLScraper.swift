@@ -180,6 +180,7 @@ class HTMLScraper {
         "&szlig;" : "ß",
         "&Ntilde;" : "Ñ",
         "&ntilde;" : "ñ",
+        "&nbsp;" : ""
     ]
     
 }
