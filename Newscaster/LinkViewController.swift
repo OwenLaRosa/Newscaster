@@ -56,6 +56,13 @@ class LinkViewController: UIViewController, UIWebViewDelegate {
         loadPlainHTMLForUrl(link)
     }
     
+    func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
+        if navigationType == .LinkClicked {
+            return false
+        }
+        return true
+    }
+    
     func webViewDidFinishLoad(webView: UIWebView) {
         // get the html body when loading is finished
         // thanks to http://stackoverflow.com/questions/5167254/getting-the-html-source-code-of-a-loaded-uiwebview for the JavaScript expression
