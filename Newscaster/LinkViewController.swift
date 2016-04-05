@@ -59,7 +59,7 @@ class LinkViewController: UIViewController, UIWebViewDelegate {
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         
-        newsAnchor.pauseSpeaking()
+        newsAnchor.stopSpeakingAtBoundary(.Immediate)
     }
     
     func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
