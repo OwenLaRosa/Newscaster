@@ -100,11 +100,16 @@ class HTMLScraper {
         // And hoping that the assumptions are accurate, it should work in the majority of cases.
         var result = [String]()
         
-        // replace all allowed ampersand codes in each string with their text equivalents
+        // remove characters that shouldn't be pronounced
         contents = contents.map() {
             var newString = $0
+            // replace all allowed ampersand codes in each string with their text equivalents
             for i in allowedAmpersandCodes.keys {
                 newString = newString.stringByReplacingOccurrencesOfString(i, withString: self.allowedAmpersandCodes[i]!)
+            }
+            // remove escape characters from the string
+            for i in escapeCharacters {
+                newString = newString.stringByReplacingOccurrencesOfString(i, withString: "")
             }
             return newString
         }
@@ -182,5 +187,8 @@ class HTMLScraper {
         "&ntilde;" : "ñ",
         "&nbsp;" : ""
     ]
+    
+    /// List of escape characters to remove
+    private let escapeCharacters = ["\\t", "\\r", "\\n", "\\t"]
     
 }
