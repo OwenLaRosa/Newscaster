@@ -109,7 +109,7 @@ class HTMLScraper {
             }
             // remove escape characters from the string
             for i in escapeCharacters {
-                newString = newString.stringByReplacingOccurrencesOfString(i, withString: "")
+                newString = newString.stringByReplacingOccurrencesOfString(i, withString: " ")
             }
             return newString
         }
