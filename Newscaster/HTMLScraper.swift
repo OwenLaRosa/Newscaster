@@ -135,6 +135,10 @@ class HTMLScraper {
                 // common title for external link, not part of the article
                 continue
             }
+            // don't read code for embedding image captions
+            if i.hasPrefix("[caption") {
+                continue
+            }
             result.append(i)
         }
         
