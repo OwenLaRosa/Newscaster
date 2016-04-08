@@ -17,7 +17,8 @@ struct NewsItem {
         let formatter = NSDateFormatter()
         formatter.dateFormat = "EEE, dd MMM yyyy HH:mm:ss zzz"
         // return formatted date or the starting point of the epoch
-        return formatter.dateFromString(dateString) ?? NSDate(timeIntervalSince1970: 0)
+        return formatter.dateFromString(dateString) ?? NSDate(timeIntervalSince1970: NSTimeInterval(dateString) ?? 0)
+        // the alternate condition is for Faroo search where the time is returned as a number
     }
     let dateString: String
     let source: String
