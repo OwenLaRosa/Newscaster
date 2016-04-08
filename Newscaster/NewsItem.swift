@@ -45,6 +45,14 @@ struct NewsItem {
         self.source = bing["Source"] as? String ?? ""
     }
     
+    init(faroo: [String: AnyObject]) {
+        self.title = faroo["title"] as? String ?? ""
+        self.description = faroo["kwic"] as? String ?? ""
+        self.link = faroo["url"] as? String ?? ""
+        self.dateString = ""
+        self.source = faroo["domain"] as? String ?? ""
+    }
+    
     init(atom: [String: AnyObject]) {
         // ensure all variables are guaranteed a value
         self.title = ""
