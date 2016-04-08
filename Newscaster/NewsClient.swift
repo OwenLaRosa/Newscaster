@@ -36,7 +36,7 @@ class NewsClient {
     }
     
     func getFeedForTerm(query: String, completionHandler: (result: [NewsItem]?, error: String?) -> Void) -> NSURLSessionTask {
-        let location = "http://www.faroo.com/api?q=cnn&start=1&length=10&l=en&src=news&i=false&f=json&key="
+        let location = "http://www.faroo.com/api?q=\(formatQueryForSearch(query))&start=1&length=10&l=en&src=news&i=false&f=json&key="
         let task = downloadData(location) {data, response, error in
             if data == nil {
                 completionHandler(result: nil, error: error?.localizedDescription)
