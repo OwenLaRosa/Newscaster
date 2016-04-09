@@ -87,7 +87,8 @@ class NewsClient {
         return task
     }
     
-    func getFeedForAtom(location: String, completionHandler: (result: [NewsItem]?, error: String?) -> Void) -> NSURLSessionTask {
+    func getFeedForAtom(var location: String, completionHandler: (result: [NewsItem]?, error: String?) -> Void) -> NSURLSessionTask {
+        location = "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20atom%20where%20url%3D%22\(formatURLForSearch(location))%22&format=json&diagnostics=true&callback="
         let task = downloadData(location) {data, response, error in
             if data == nil {
                 completionHandler(result: nil, error: error?.localizedDescription)
