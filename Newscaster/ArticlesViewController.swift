@@ -167,11 +167,14 @@ class ArticlesViewController: UIViewController, UITableViewDataSource, UITableVi
                     self.updateArticleList(withArticles: returnedArticles)
                     self.tableView.reloadData()
                 }
+            } else {
+                self.loadAtomArticles()
             }
         }
     }
     
     func loadAtomArticles() {
+        print("loadAtomArticles")
         NewsClient().getFeedForAtom(feed.url!) {result, error in
             if let returnedArticles = result {
                 dispatch_async(dispatch_get_main_queue()) {
