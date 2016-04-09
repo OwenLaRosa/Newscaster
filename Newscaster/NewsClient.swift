@@ -87,14 +87,21 @@ class NewsClient {
         return task
     }
     
-    func getFeedForAtom(location: String, completionHandler: (result: [String: String]?, error: String?) -> Void) -> NSURLSessionTask {
+    func getFeedForAtom(location: String, completionHandler: (result: [NewsItem]?, error: String?) -> Void) -> NSURLSessionTask {
         let task = downloadData(location) {data, response, error in
             if data == nil {
                 completionHandler(result: nil, error: error?.localizedDescription)
             }
             self.parseJSONData(data!) {result, error in
                 if result != nil {
-                    print(result)
+                    let query = result!["query"] as! [String: AnyObject]
+                    if let results = query["results"] as? [String : AnyObject] {
+                        let entry = results["entry"] as! [[String : AnyObject]]
+                        let newsItems = entry.map({
+                            NewsItem(atom: $0)
+                        })
+                        completionHandler(result: newsItems, error: nil)
+                    }
                 }
             }
         }
