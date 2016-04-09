@@ -20,8 +20,8 @@ struct NewsItem {
         return formatter.dateFromString(dateString) ?? NSDate(timeIntervalSince1970: NSTimeInterval(dateString) ?? 0)
         // the alternate condition is for Faroo search where the time is returned as a number
     }
-    let dateString: String
-    let source: String
+    var dateString: String
+    var source: String
     
     init(rss: [String : AnyObject]) {
         self.title = rss["title"] as? String ?? ""
