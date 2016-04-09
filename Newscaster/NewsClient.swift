@@ -8,6 +8,13 @@
 
 import Foundation
 
+enum NewsClientError: String {
+    /// Returned if the result was actually an Atom feed
+    case AtomError
+    /// Returned if the result was actually an Rss feed
+    case RSSError
+}
+
 class NewsClient {
     
     /// Download data at the destination URL.
@@ -66,12 +73,14 @@ class NewsClient {
                     print(result)
                     // retrieve the array of results
                     let query = result!["query"] as! [String: AnyObject]
-                    let results = query["results"] as! [String : AnyObject]
-                    let item = results["item"] as! [[String : AnyObject]]
-                    let newsItems = item.map({
-                        NewsItem(rss: $0)
-                    })
-                    completionHandler(result: newsItems, error: nil)
+                    if let results = query["results"] as? [String : AnyObject] {
+                        let item = results["item"] as! [[String : AnyObject]]
+                        let newsItems = item.map({
+                            NewsItem(rss: $0)
+                        })
+                        completionHandler(result: newsItems, error: nil)
+                    }
+                    completionHandler(result: nil, error: NewsClientError.AtomError.rawValue)
                 }
             }
         }
