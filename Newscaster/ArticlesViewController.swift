@@ -150,6 +150,8 @@ class ArticlesViewController: UIViewController, UITableViewDataSource, UITableVi
         switch feed.type {
         case "RSS" :
             loadRSSArticles()
+        case "Atom":
+            loadAtomArticles()
         case "News" :
             loadNewsArticles()
         default:
@@ -163,6 +165,20 @@ class ArticlesViewController: UIViewController, UITableViewDataSource, UITableVi
                 dispatch_async(dispatch_get_main_queue()) {
                     self.refreshControl.endRefreshing()
                     self.updateArticleList(withArticles: returnedArticles)
+                    self.tableView.reloadData()
+                }
+            }
+        }
+    }
+    
+    func loadAtomArticles() {
+        NewsClient().getFeedForAtom(feed.url!) {result, error in
+            if let returnedArticles = result {
+                dispatch_async(dispatch_get_main_queue()) {
+                    self.refreshControl.endRefreshing()
+                    self.updateArticleList(withArticles: returnedArticles)
+                    // set the type to atom just in case it previously said RSS
+                    self.feed.type = "Atom"
                     self.tableView.reloadData()
                 }
             }
