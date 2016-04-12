@@ -82,6 +82,9 @@ struct NewsItem {
                 }
             }
         }
+        if let author = atom["author"] as? [String: AnyObject] {
+            self.source = author["name"] as? String ?? ""
+        }
     }
     
 }
