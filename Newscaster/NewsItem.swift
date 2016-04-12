@@ -33,7 +33,7 @@ struct NewsItem {
         
         let pubDate = rss["pubDate"] as? String ?? ""
         self.dateString = pubDate
-        self.source = ""
+        self.source = rss["author"] as? String ?? rss["creator"] as? String ?? ""
     }
     
     init(bing: [String: AnyObject]) {
