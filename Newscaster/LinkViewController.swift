@@ -36,7 +36,7 @@ class LinkViewController: UIViewController, UIWebViewDelegate {
         
         // play button should be disabled to begin with
         navigationItem.rightBarButtonItems?.removeAll()
-        navigationItem.rightBarButtonItem = playButton
+        navigationItem.rightBarButtonItems = [playButton, settingsButton]
         playButton.enabled = false
         
         navigationItem.title = article.title
@@ -100,7 +100,7 @@ class LinkViewController: UIViewController, UIWebViewDelegate {
     @IBAction func didPressPlay(sender: UIBarButtonItem) {
         // turn it into a pause button
         navigationItem.rightBarButtonItems?.removeAll()
-        navigationItem.rightBarButtonItem = pauseButton
+        navigationItem.rightBarButtonItems = [pauseButton, settingsButton]
         if newsAnchor.speaking {
             // resume speaking the article
             newsAnchor.resumeSpeaking()
@@ -113,7 +113,7 @@ class LinkViewController: UIViewController, UIWebViewDelegate {
     @IBAction func didPressPause(sender: UIBarButtonItem) {
         // turn it into a play button
         navigationItem.rightBarButtonItems?.removeAll()
-        navigationItem.rightBarButtonItem = playButton
+        navigationItem.rightBarButtonItems = [playButton, settingsButton]
         newsAnchor.pauseSpeaking()
     }
     
