@@ -72,6 +72,28 @@ class HTMLScraper {
         return string
     }
     
+    /// Removes ampersand codes of the format "&#0000;" from the string
+    func removeUnknownAmpersandCodes(fromString string: String) -> String {
+        var result = ""
+        var isAmpersandCode = false
+        for i in string.startIndex..<string.endIndex {
+            if string[i] == Character("&") {
+                // inside of ampersand code, disallow appending to the string
+                isAmpersandCode = string[i.successor()] == "#"
+                continue
+            }
+            if isAmpersandCode {
+                if string[i] == Character(";") {
+                    // outside of ampersand code, re-allow appending to the string
+                    isAmpersandCode = false
+                }
+                continue
+            }
+            result += String(string[i])
+        }
+        return result
+    }
+    
     /// Return an array containing the contents for each instance of the specified tag
     func getContentsForTag(tag: String) -> [String] {
         let startTag = "<\(tag)"
@@ -111,7 +133,7 @@ class HTMLScraper {
             for i in escapeCharacters {
                 newString = newString.stringByReplacingOccurrencesOfString(i, withString: " ")
             }
-            return newString
+            return removeUnknownAmpersandCodes(fromString: newString)
         }
         
         for i in contents {
