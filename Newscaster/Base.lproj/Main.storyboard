@@ -358,11 +358,13 @@
                                     <action selector="didPressPause:" destination="vLc-Ur-A8X" id="EP2-Lg-bA7"/>
                                 </connections>
                             </barButtonItem>
+                            <barButtonItem title="Item" id="S3s-s4-JRc"/>
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="pauseButton" destination="peV-Y1-4vh" id="MSP-Ve-G5L"/>
                         <outlet property="playButton" destination="yq9-Xh-O4P" id="YPP-af-EmS"/>
+                        <outlet property="settingsButton" destination="S3s-s4-JRc" id="LQ8-rr-N6J"/>
                         <outlet property="webView" destination="321-qr-YfX" id="eMi-Bl-ozi"/>
                     </connections>
                 </viewController>

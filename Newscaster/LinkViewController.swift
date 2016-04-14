@@ -16,6 +16,7 @@ class LinkViewController: UIViewController, UIWebViewDelegate {
     @IBOutlet weak var webView: UIWebView!
     @IBOutlet var playButton: UIBarButtonItem!
     @IBOutlet var pauseButton: UIBarButtonItem!
+    @IBOutlet weak var settingsButton: UIBarButtonItem!
     
     var newsAnchor: NewsAnchor!
     /// true if this instance of the view has already appeared, otherwise false
