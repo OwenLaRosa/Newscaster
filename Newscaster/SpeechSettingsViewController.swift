@@ -7,10 +7,13 @@
 //
 
 import UIKit
+import AVFoundation
 
 class SpeechSettingsViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
+    
+    weak var newsAnchor: NewsAnchor!
     
     @IBAction func dismissButtonTapped(sender: UIButton) {
         dismissViewControllerAnimated(true, completion: nil)
@@ -28,7 +31,14 @@ extension SpeechSettingsViewController: UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        switch section {
+        case 0, 1:
+            return 1 // one slider
+        case 2:
+            return AVSpeechSynthesisVoice.speechVoices().count
+        default:
+            return 0
+        }
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
