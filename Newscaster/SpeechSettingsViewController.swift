@@ -68,4 +68,17 @@ extension SpeechSettingsViewController: UITableViewDataSource {
         }
     }
     
+    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        switch section {
+        case 0:
+            return "rate"
+        case 1:
+            return "pitch"
+        case 2:
+            return "voice"
+        default:
+            return ""
+        }
+    }
+    
 }
