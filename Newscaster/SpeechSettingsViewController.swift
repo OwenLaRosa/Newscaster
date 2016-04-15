@@ -14,6 +14,19 @@ class SpeechSettingsViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     weak var newsAnchor: NewsAnchor!
+    var speechVoices: [AVSpeechSynthesisVoice]!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        speechVoices = AVSpeechSynthesisVoice.speechVoices()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        tableView.reloadData()
+    }
     
     @IBAction func dismissButtonTapped(sender: UIButton) {
         dismissViewControllerAnimated(true, completion: nil)
@@ -35,14 +48,24 @@ extension SpeechSettingsViewController: UITableViewDataSource {
         case 0, 1:
             return 1 // one slider
         case 2:
-            return AVSpeechSynthesisVoice.speechVoices().count
+            return speechVoices.count
         default:
             return 0
         }
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        switch indexPath.section {
+        case 0, 1:
+            return SliderTableViewCell()
+        case 2:
+            let voice = speechVoices[indexPath.row]
+            let cell = SpeechVoiceTableViewCell()
+            cell.textLabel?.text = "\(voice.name) (\(voice.language))"
+            return cell
+        default:
+            return UITableViewCell()
+        }
     }
     
 }
