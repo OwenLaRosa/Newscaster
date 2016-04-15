@@ -17,3 +17,22 @@ class SpeechSettingsViewController: UIViewController {
     }
     
 }
+
+extension SpeechSettingsViewController: UITableViewDataSource {
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        // section 1: change rate
+        // section 2: change pitch
+        // section 3: change voice
+        return 3
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 0
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        return UITableViewCell()
+    }
+    
+}
