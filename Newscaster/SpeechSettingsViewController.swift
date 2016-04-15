@@ -10,6 +10,10 @@ import UIKit
 
 class SpeechSettingsViewController: UIViewController {
     
+    @IBOutlet weak var tableView: UITableView!
     
+    @IBAction func dismissButtonTapped(sender: UIButton) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
     
 }

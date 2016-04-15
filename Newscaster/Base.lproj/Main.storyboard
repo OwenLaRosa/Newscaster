@@ -130,10 +130,10 @@
             </objects>
             <point key="canvasLocation" x="741" y="1236"/>
         </scene>
-        <!--View Controller-->
+        <!--Speech Settings View Controller-->
         <scene sceneID="Azk-5a-QTV">
             <objects>
-                <viewController id="Fp2-Dn-vM0" sceneMemberID="viewController">
+                <viewController id="Fp2-Dn-vM0" customClass="SpeechSettingsViewController" customModule="Newscaster" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="TEZ-iM-89f"/>
                         <viewControllerLayoutGuide type="bottom" id="Og0-sa-yl1"/>
@@ -162,6 +162,9 @@
                                 <state key="normal" title="Dismiss">
                                     <color key="titleColor" red="0.0" green="0.40000000000000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="dismissButtonTapped:" destination="Fp2-Dn-vM0" eventType="touchUpInside" id="r7t-i4-0UZ"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -176,6 +179,9 @@
                             <constraint firstItem="xFr-Ck-Nc0" firstAttribute="leading" secondItem="kDG-cW-NgN" secondAttribute="leading" id="d42-Gl-m3j"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="xFr-Ck-Nc0" id="A83-fs-Nrc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hN4-4K-Rkk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
