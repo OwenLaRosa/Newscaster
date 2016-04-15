@@ -28,7 +28,6 @@ class LinkViewController: UIViewController, UIWebViewDelegate {
         canDisplayBannerAds = true
         
         webView.delegate = self
-        newsAnchor = NewsAnchor()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -60,7 +59,9 @@ class LinkViewController: UIViewController, UIWebViewDelegate {
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         
-        newsAnchor.stopSpeakingAtBoundary(.Immediate)
+        if let newsAnchor = newsAnchor {
+            newsAnchor.stopSpeakingAtBoundary(.Immediate)
+        }
     }
     
     func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
@@ -92,7 +93,8 @@ class LinkViewController: UIViewController, UIWebViewDelegate {
                 self.firstAppeared = false
                 let result = String(data: data, encoding: NSUTF8StringEncoding)
                 // parse the result and assign it to the news anchor
-                self.newsAnchor.stringToSpeak = HTMLScraper(html: result!).getContentsForTag("p").joinWithSeparator(" ")
+                let stringToSpeak = HTMLScraper(html: result!).getContentsForTag("p").joinWithSeparator(" ")
+                self.newsAnchor = NewsAnchor(stringToSpeak: stringToSpeak)
             }
         }
     }

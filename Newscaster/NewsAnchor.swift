@@ -13,11 +13,16 @@ public class NewsAnchor: AVSpeechSynthesizer {
     /// String that will be spoken
     var stringToSpeak: String!
     
-    /// Start speaking the string from the beginning.
-    public func startSpeaking() {
-        let utterance = AVSpeechUtterance(string: stringToSpeak)
+    var utterance: AVSpeechUtterance!
+    
+    init(stringToSpeak: String) {
+        utterance = AVSpeechUtterance(string: stringToSpeak)
         // use the iOS "Daniel" voice
         utterance.voice = AVSpeechSynthesisVoice(language: "en-GB")
+    }
+    
+    /// Start speaking the string from the beginning.
+    public func startSpeaking() {
         speakUtterance(utterance)
     }
     
