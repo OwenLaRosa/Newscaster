@@ -18,6 +18,7 @@
 		5A9F95CC1C5E7D9100344129 /* AddSourceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9F95CB1C5E7D9100344129 /* AddSourceViewController.swift */; };
 		5A9F95CE1C5E7E9700344129 /* FeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9F95CD1C5E7E9700344129 /* FeedTableViewCell.swift */; };
 		5A9F95D01C5E7EA900344129 /* ArticleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9F95CF1C5E7EA900344129 /* ArticleTableViewCell.swift */; };
+		5AB137011CC17891009786BE /* SpeechSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AB137001CC17891009786BE /* SpeechSettingsViewController.swift */; };
 		5ADD32AE1C9DAE0C00B5B303 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5ADD32AD1C9DAE0C00B5B303 /* iAd.framework */; };
 		5AF66C5D1C54004A00659CE9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF66C5C1C54004A00659CE9 /* AppDelegate.swift */; };
 		5AF66C5F1C54004A00659CE9 /* FeedsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF66C5E1C54004A00659CE9 /* FeedsViewController.swift */; };
@@ -59,6 +60,7 @@
 		5A9F95CB1C5E7D9100344129 /* AddSourceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddSourceViewController.swift; sourceTree = "<group>"; };
 		5A9F95CD1C5E7E9700344129 /* FeedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedTableViewCell.swift; sourceTree = "<group>"; };
 		5A9F95CF1C5E7EA900344129 /* ArticleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleTableViewCell.swift; sourceTree = "<group>"; };
+		5AB137001CC17891009786BE /* SpeechSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeechSettingsViewController.swift; sourceTree = "<group>"; };
 		5ADD32AD1C9DAE0C00B5B303 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		5AF66C591C54004A00659CE9 /* Newscaster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Newscaster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AF66C5C1C54004A00659CE9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -201,6 +203,7 @@
 			isa = PBXGroup;
 			children = (
 				5AF66C5E1C54004A00659CE9 /* FeedsViewController.swift */,
+				5AB137001CC17891009786BE /* SpeechSettingsViewController.swift */,
 				5A9F95C71C5E7D4F00344129 /* ArticlesViewController.swift */,
 				5A9F95C91C5E7D7C00344129 /* LinkViewController.swift */,
 				5A9F95CB1C5E7D9100344129 /* AddSourceViewController.swift */,
@@ -358,6 +361,7 @@
 			files = (
 				5A7B35ED1C5ABEC600E7E601 /* Article.swift in Sources */,
 				5A9F95CC1C5E7D9100344129 /* AddSourceViewController.swift in Sources */,
+				5AB137011CC17891009786BE /* SpeechSettingsViewController.swift in Sources */,
 				5AF66C651C54004A00659CE9 /* Newscaster.xcdatamodeld in Sources */,
 				5A7B35EB1C5ABC2500E7E601 /* Feed.swift in Sources */,
 				5A7EE0631C7F98040007D5E2 /* HTMLScraper.swift in Sources */,
