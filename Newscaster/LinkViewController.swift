@@ -28,10 +28,6 @@ class LinkViewController: UIViewController, UIWebViewDelegate {
         canDisplayBannerAds = true
         
         webView.delegate = self
-    }
-    
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
         
         // play button should be disabled to begin with
         navigationItem.rightBarButtonItems?.removeAll()
@@ -69,6 +65,12 @@ class LinkViewController: UIViewController, UIWebViewDelegate {
             // otherwise, speaking should be stopped
             newsAnchor.stopSpeakingAtBoundary(.Immediate)
         }
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        super.prepareForSegue(segue, sender: sender)
+        let destinationVC = segue.destinationViewController as! SpeechSettingsViewController
+        destinationVC.newsAnchor = newsAnchor
     }
     
     func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
