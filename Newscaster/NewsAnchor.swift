@@ -17,8 +17,11 @@ public class NewsAnchor: AVSpeechSynthesizer {
     
     init(stringToSpeak: String) {
         utterance = AVSpeechUtterance(string: stringToSpeak)
-        // use the iOS "Daniel" voice
-        utterance.voice = AVSpeechSynthesisVoice(language: "en-GB")
+        // assign voice and properties from settings
+        let settings = Settings.sharedInstance()
+        utterance.voice = AVSpeechSynthesisVoice(language: settings.voice)
+        utterance.rate = settings.rate
+        utterance.pitchMultiplier = settings.pitch
     }
     
     /// Start speaking the string from the beginning.
