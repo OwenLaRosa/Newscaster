@@ -19,7 +19,9 @@ class SpeechSettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        speechVoices = AVSpeechSynthesisVoice.speechVoices()
+        // sort the list and move English voices to the top
+        let speechVoices = AVSpeechSynthesisVoice.speechVoices().sort({$0.name < $1.name})
+        self.speechVoices = speechVoices.filter() {$0.language.hasPrefix("en")} + speechVoices.filter() {!$0.language.hasPrefix("en")}
     }
     
     override func viewWillAppear(animated: Bool) {
