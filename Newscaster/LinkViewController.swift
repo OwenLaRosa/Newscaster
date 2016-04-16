@@ -56,10 +56,17 @@ class LinkViewController: UIViewController, UIWebViewDelegate {
         loadPlainHTMLForUrl(link)
     }
     
-    override func viewWillDisappear(animated: Bool) {
-        super.viewWillDisappear(animated)
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(animated)
         
         if let newsAnchor = newsAnchor {
+            // keep speaking if the settings view is shown
+            if let currentVC = UIApplication.sharedApplication().delegate?.window!?.rootViewController!.presentedViewController {
+                if currentVC is SpeechSettingsViewController {
+                    return
+                }
+            }
+            // otherwise, speaking should be stopped
             newsAnchor.stopSpeakingAtBoundary(.Immediate)
         }
     }
