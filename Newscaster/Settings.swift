@@ -14,8 +14,8 @@ class Settings {
     
     private struct Defaults {
         static let voice = "en-GB"
-        static let rate = 1.0
-        static let pitch = 1.0
+        static let rate: Float = 0.5
+        static let pitch: Float = 1.0
     }
     
     private struct Keys {
@@ -33,29 +33,29 @@ class Settings {
         }
     }
     
-    var rate: Double {
+    var rate: Float {
         get {
-            let rateValue = userDefaults.doubleForKey(Keys.rate)
+            let rateValue = userDefaults.floatForKey(Keys.rate)
             if rateValue > 0 {
                 return rateValue
             }
             return Defaults.rate
         }
         set (newRate) {
-            userDefaults.setObject(newRate, forKey: Keys.rate)
+            userDefaults.setFloat(newRate, forKey: Keys.rate)
         }
     }
     
-    var pitch: Double {
+    var pitch: Float {
         get {
-            let pitchValue = userDefaults.doubleForKey(Keys.pitch)
+            let pitchValue = userDefaults.floatForKey(Keys.pitch)
             if pitchValue > 0 {
                 return pitchValue
             }
             return Defaults.pitch
         }
         set (newPitch) {
-            userDefaults.setDouble(newPitch, forKey: Keys.pitch)
+            userDefaults.setFloat(newPitch, forKey: Keys.pitch)
         }
     }
     
