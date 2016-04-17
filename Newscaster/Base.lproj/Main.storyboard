@@ -141,17 +141,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IqM-mK-OFJ">
-                                <rect key="frame" x="200" y="20" width="200" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="WUw-SZ-yJx"/>
-                                    <constraint firstAttribute="height" constant="30" id="tBI-Zm-oUo"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <state key="normal" title="Speech Settings">
-                                    <color key="titleColor" red="0.0" green="0.40000000000000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="xFr-Ck-Nc0">
                                 <rect key="frame" x="0.0" y="65" width="600" height="535"/>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -178,7 +167,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="checkmark" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SpeechVoiceTableViewCell" textLabel="pNN-wM-LW1" style="IBUITableViewCellStyleDefault" id="m1V-vQ-9Ti" customClass="SpeechVoiceTableViewCell" customModule="Newscaster" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="93.5" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="94" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="m1V-vQ-9Ti" id="xQl-7U-bYM">
                                             <rect key="frame" x="0.0" y="0.0" width="561" height="43.5"/>
@@ -209,17 +198,27 @@
                                     <action selector="dismissButtonTapped:" destination="Fp2-Dn-vM0" eventType="touchUpInside" id="r7t-i4-0UZ"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Speech Settings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fDo-SU-a1S">
+                                <rect key="frame" x="210" y="20" width="181" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="181" id="URl-0X-dc9"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="22"/>
+                                <color key="textColor" red="0.0" green="0.40000000000000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="IqM-mK-OFJ" firstAttribute="centerX" secondItem="kDG-cW-NgN" secondAttribute="centerX" id="4KA-vm-urn"/>
+                            <constraint firstItem="fDo-SU-a1S" firstAttribute="bottom" secondItem="9SD-g8-i1K" secondAttribute="bottom" id="2pJ-tB-1uy"/>
+                            <constraint firstItem="fDo-SU-a1S" firstAttribute="centerX" secondItem="kDG-cW-NgN" secondAttribute="centerX" id="3kx-Xi-aSy"/>
                             <constraint firstItem="9SD-g8-i1K" firstAttribute="top" secondItem="TEZ-iM-89f" secondAttribute="bottom" id="7Xr-zQ-Dy5"/>
-                            <constraint firstItem="IqM-mK-OFJ" firstAttribute="top" secondItem="TEZ-iM-89f" secondAttribute="bottom" id="EdY-qD-yqh"/>
+                            <constraint firstItem="fDo-SU-a1S" firstAttribute="top" secondItem="9SD-g8-i1K" secondAttribute="top" id="TEN-zu-1Qz"/>
                             <constraint firstAttribute="leadingMargin" secondItem="9SD-g8-i1K" secondAttribute="leading" id="UmF-pB-gtD"/>
                             <constraint firstItem="xFr-Ck-Nc0" firstAttribute="top" secondItem="9SD-g8-i1K" secondAttribute="bottom" constant="15" id="Vag-kZ-mq9"/>
-                            <constraint firstItem="xFr-Ck-Nc0" firstAttribute="centerX" secondItem="IqM-mK-OFJ" secondAttribute="centerX" id="WMW-oX-Ggf"/>
                             <constraint firstItem="xFr-Ck-Nc0" firstAttribute="bottom" secondItem="Og0-sa-yl1" secondAttribute="top" id="Ze7-7J-Wdn"/>
                             <constraint firstItem="xFr-Ck-Nc0" firstAttribute="leading" secondItem="kDG-cW-NgN" secondAttribute="leading" id="d42-Gl-m3j"/>
+                            <constraint firstItem="fDo-SU-a1S" firstAttribute="centerX" secondItem="xFr-Ck-Nc0" secondAttribute="centerX" id="oYp-K7-hBE"/>
                         </constraints>
                     </view>
                     <connections>
