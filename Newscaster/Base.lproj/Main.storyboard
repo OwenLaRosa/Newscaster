@@ -460,7 +460,7 @@
                             </barButtonItem>
                             <barButtonItem title="Item" id="S3s-s4-JRc">
                                 <connections>
-                                    <segue destination="Fp2-Dn-vM0" kind="presentation" modalTransitionStyle="coverVertical" id="msD-TV-pDf"/>
+                                    <segue destination="Fp2-Dn-vM0" kind="presentation" modalTransitionStyle="crossDissolve" id="msD-TV-pDf"/>
                                 </connections>
                             </barButtonItem>
                         </rightBarButtonItems>
