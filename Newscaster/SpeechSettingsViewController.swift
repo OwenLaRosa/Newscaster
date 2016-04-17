@@ -59,10 +59,11 @@ extension SpeechSettingsViewController: UITableViewDataSource {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         switch indexPath.section {
         case 0, 1:
-            return SliderTableViewCell()
+            let cell = tableView.dequeueReusableCellWithIdentifier("SliderTableViewCell", forIndexPath: indexPath) as! SliderTableViewCell
+            return cell
         case 2:
             let voice = speechVoices[indexPath.row]
-            let cell = SpeechVoiceTableViewCell()
+            let cell = tableView.dequeueReusableCellWithIdentifier("SpeechVoiceTableViewCell", forIndexPath: indexPath) as! SpeechVoiceTableViewCell
             cell.textLabel?.text = "\(voice.name) (\(voice.language))"
             return cell
         default:
