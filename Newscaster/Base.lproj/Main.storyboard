@@ -146,10 +146,10 @@
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SliderTableViewCell" id="2he-Rz-Srf" customClass="SliderTableViewCell" customModule="Newscaster" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="49.5" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2he-Rz-Srf" id="22N-5o-uym">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="H5n-Xk-7Jm">
@@ -167,7 +167,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="checkmark" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SpeechVoiceTableViewCell" textLabel="pNN-wM-LW1" style="IBUITableViewCellStyleDefault" id="m1V-vQ-9Ti" customClass="SpeechVoiceTableViewCell" customModule="Newscaster" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="94" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="93.5" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="m1V-vQ-9Ti" id="xQl-7U-bYM">
                                             <rect key="frame" x="0.0" y="0.0" width="561" height="43.5"/>
@@ -189,15 +189,6 @@
                                     <outlet property="delegate" destination="Fp2-Dn-vM0" id="45a-Oq-TyK"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9SD-g8-i1K">
-                                <rect key="frame" x="20" y="20" width="54" height="30"/>
-                                <state key="normal" title="Dismiss">
-                                    <color key="titleColor" red="0.0" green="0.40000000000000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="dismissButtonTapped:" destination="Fp2-Dn-vM0" eventType="touchUpInside" id="r7t-i4-0UZ"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Speech Settings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fDo-SU-a1S">
                                 <rect key="frame" x="210" y="20" width="181" height="30"/>
                                 <constraints>
@@ -207,18 +198,28 @@
                                 <color key="textColor" red="0.0" green="0.40000000000000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9SD-g8-i1K">
+                                <rect key="frame" x="531" y="20" width="49" height="30"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Apply">
+                                    <color key="titleColor" red="0.0" green="0.40000000000000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="dismissButtonTapped:" destination="Fp2-Dn-vM0" eventType="touchUpInside" id="r7t-i4-0UZ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="fDo-SU-a1S" firstAttribute="bottom" secondItem="9SD-g8-i1K" secondAttribute="bottom" id="2pJ-tB-1uy"/>
                             <constraint firstItem="fDo-SU-a1S" firstAttribute="centerX" secondItem="kDG-cW-NgN" secondAttribute="centerX" id="3kx-Xi-aSy"/>
-                            <constraint firstItem="9SD-g8-i1K" firstAttribute="top" secondItem="TEZ-iM-89f" secondAttribute="bottom" id="7Xr-zQ-Dy5"/>
-                            <constraint firstItem="fDo-SU-a1S" firstAttribute="top" secondItem="9SD-g8-i1K" secondAttribute="top" id="TEN-zu-1Qz"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="9SD-g8-i1K" secondAttribute="leading" id="UmF-pB-gtD"/>
-                            <constraint firstItem="xFr-Ck-Nc0" firstAttribute="top" secondItem="9SD-g8-i1K" secondAttribute="bottom" constant="15" id="Vag-kZ-mq9"/>
+                            <constraint firstItem="9SD-g8-i1K" firstAttribute="trailing" secondItem="kDG-cW-NgN" secondAttribute="trailingMargin" id="JRj-M5-R6F"/>
                             <constraint firstItem="xFr-Ck-Nc0" firstAttribute="bottom" secondItem="Og0-sa-yl1" secondAttribute="top" id="Ze7-7J-Wdn"/>
                             <constraint firstItem="xFr-Ck-Nc0" firstAttribute="leading" secondItem="kDG-cW-NgN" secondAttribute="leading" id="d42-Gl-m3j"/>
+                            <constraint firstItem="9SD-g8-i1K" firstAttribute="top" secondItem="fDo-SU-a1S" secondAttribute="top" id="de0-xb-6Ow"/>
+                            <constraint firstItem="9SD-g8-i1K" firstAttribute="bottom" secondItem="fDo-SU-a1S" secondAttribute="bottom" id="hat-HF-c7x"/>
+                            <constraint firstItem="9SD-g8-i1K" firstAttribute="top" secondItem="TEZ-iM-89f" secondAttribute="bottom" id="kPM-u7-bXA"/>
                             <constraint firstItem="fDo-SU-a1S" firstAttribute="centerX" secondItem="xFr-Ck-Nc0" secondAttribute="centerX" id="oYp-K7-hBE"/>
+                            <constraint firstItem="xFr-Ck-Nc0" firstAttribute="top" secondItem="9SD-g8-i1K" secondAttribute="bottom" constant="15" id="pVg-HU-pB3"/>
                         </constraints>
                     </view>
                     <connections>
