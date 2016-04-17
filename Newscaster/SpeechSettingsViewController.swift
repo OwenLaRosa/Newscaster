@@ -65,6 +65,12 @@ extension SpeechSettingsViewController: UITableViewDataSource {
         case 2:
             let voice = speechVoices[indexPath.row]
             let cell = tableView.dequeueReusableCellWithIdentifier("SpeechVoiceTableViewCell", forIndexPath: indexPath) as! SpeechVoiceTableViewCell
+            // determine the currently selected voice and show the checkmark
+            if voice.language == Settings.sharedInstance().voice {
+                cell.accessoryType = .Checkmark
+            } else {
+                cell.accessoryType = .None
+            }
             cell.textLabel?.text = "\(voice.name) (\(voice.language))"
             return cell
         default:
@@ -93,6 +99,9 @@ extension SpeechSettingsViewController: UITableViewDelegate {
         let voice = speechVoices[indexPath.row]
         Settings.sharedInstance().voice = voice.language
         newsAnchor?.utterance.voice = voice
+        
+        // reflect changes in the UI
+        tableView.reloadData()
     }
     
 }
