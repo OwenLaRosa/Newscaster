@@ -27,7 +27,14 @@ class SpeechSettingsViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
+        UIApplication.sharedApplication().setStatusBarStyle(.Default, animated: false)
         tableView.reloadData()
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        UIApplication.sharedApplication().setStatusBarStyle(.LightContent, animated: false)
     }
     
     @IBAction func dismissButtonTapped(sender: UIButton) {
