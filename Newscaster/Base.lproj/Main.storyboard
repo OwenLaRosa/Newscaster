@@ -157,16 +157,21 @@
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SliderTableViewCell" id="2he-Rz-Srf" customClass="SliderTableViewCell" customModule="Newscaster" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="49.5" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="50" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2he-Rz-Srf" id="22N-5o-uym">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="H5n-Xk-7Jm">
+                                                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="H5n-Xk-7Jm">
                                                     <rect key="frame" x="6" y="8" width="588" height="31"/>
                                                 </slider>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="H5n-Xk-7Jm" firstAttribute="trailing" secondItem="22N-5o-uym" secondAttribute="trailingMargin" id="IoY-Eq-vxf"/>
+                                                <constraint firstItem="H5n-Xk-7Jm" firstAttribute="top" secondItem="22N-5o-uym" secondAttribute="topMargin" id="YRC-gb-RrV"/>
+                                                <constraint firstItem="H5n-Xk-7Jm" firstAttribute="leading" secondItem="22N-5o-uym" secondAttribute="leadingMargin" id="xQC-fy-wLh"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="slider" destination="H5n-Xk-7Jm" id="SIw-MS-zXq"/>
