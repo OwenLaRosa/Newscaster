@@ -13,7 +13,7 @@ class SpeechSettingsViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    weak var newsAnchor: NewsAnchor!
+    weak var newsAnchor: NewsAnchor?
     var speechVoices: [AVSpeechSynthesisVoice]!
     
     override func viewDidLoad() {
@@ -91,7 +91,7 @@ extension SpeechSettingsViewController: UITableViewDelegate {
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let voice = speechVoices[indexPath.row]
         Settings.sharedInstance().voice = voice.language
-        newsAnchor.utterance.voice = voice
+        newsAnchor?.utterance.voice = voice
     }
     
 }
