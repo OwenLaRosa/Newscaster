@@ -156,7 +156,7 @@
                                 <rect key="frame" x="0.0" y="65" width="600" height="535"/>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="2he-Rz-Srf" customClass="SliderTableViewCell" customModule="Newscaster" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SliderTableViewCell" id="2he-Rz-Srf" customClass="SliderTableViewCell" customModule="Newscaster" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="49.5" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2he-Rz-Srf" id="22N-5o-uym">
@@ -172,7 +172,7 @@
                                             <outlet property="slider" destination="H5n-Xk-7Jm" id="SIw-MS-zXq"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="checkmark" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="pNN-wM-LW1" style="IBUITableViewCellStyleDefault" id="m1V-vQ-9Ti" customClass="SpeechVoiceTableViewCell" customModule="Newscaster" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="checkmark" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SpeechVoiceTableViewCell" textLabel="pNN-wM-LW1" style="IBUITableViewCellStyleDefault" id="m1V-vQ-9Ti" customClass="SpeechVoiceTableViewCell" customModule="Newscaster" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="93.5" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="m1V-vQ-9Ti" id="xQl-7U-bYM">
