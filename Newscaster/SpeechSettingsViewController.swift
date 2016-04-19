@@ -37,7 +37,8 @@ class SpeechSettingsViewController: UIViewController {
         UIApplication.sharedApplication().setStatusBarStyle(.LightContent, animated: false)
     }
     
-    @IBAction func dismissButtonTapped(sender: UIButton) {
+    @IBAction func applyButtonTapped(sender: UIButton) {
+        newsAnchor?.resetSpeechSettings()
         dismissViewControllerAnimated(true, completion: nil)
     }
     

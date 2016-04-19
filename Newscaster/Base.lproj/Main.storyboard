@@ -205,7 +205,7 @@
                                     <color key="titleColor" red="0.0" green="0.40000000000000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="dismissButtonTapped:" destination="Fp2-Dn-vM0" eventType="touchUpInside" id="r7t-i4-0UZ"/>
+                                    <action selector="applyButtonTapped:" destination="Fp2-Dn-vM0" eventType="touchUpInside" id="uXO-VN-F9t"/>
                                 </connections>
                             </button>
                         </subviews>
