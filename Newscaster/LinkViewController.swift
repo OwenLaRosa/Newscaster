@@ -104,7 +104,9 @@ class LinkViewController: UIViewController, UIWebViewDelegate {
                 // parse the result and assign it to the news anchor
                 let stringToSpeak = HTMLScraper(html: result!).getContentsForTag("p").joinWithSeparator(" ")
                 self.newsAnchor = NewsAnchor(stringToSpeak: stringToSpeak)
-                self.playButton.enabled = true
+                dispatch_async(dispatch_get_main_queue()) {
+                    self.playButton.enabled = true
+                }
             }
         }
     }
