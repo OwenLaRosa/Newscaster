@@ -88,7 +88,7 @@ class LinkViewController: UIViewController, UIWebViewDelegate {
         // TODO: Extract article text from HTML
         
         // once that's done, enable the play button
-        playButton.enabled = true
+        //playButton.enabled = true
     }
     
     /// Load HTML from the destination URL, parse the result, and assign it to the article entity
@@ -104,6 +104,7 @@ class LinkViewController: UIViewController, UIWebViewDelegate {
                 // parse the result and assign it to the news anchor
                 let stringToSpeak = HTMLScraper(html: result!).getContentsForTag("p").joinWithSeparator(" ")
                 self.newsAnchor = NewsAnchor(stringToSpeak: stringToSpeak)
+                self.playButton.enabled = true
             }
         }
     }
