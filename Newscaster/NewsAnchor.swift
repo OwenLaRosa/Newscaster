@@ -31,6 +31,7 @@ public class NewsAnchor: AVSpeechSynthesizer {
     
     /// Start speaking the string from the beginning.
     public func startSpeaking() {
+        delegate = self
         speakUtterance(utterance)
     }
     
