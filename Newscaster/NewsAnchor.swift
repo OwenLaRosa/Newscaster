@@ -20,13 +20,11 @@ public class NewsAnchor: AVSpeechSynthesizer {
     private var nextIndex = 0
     
     init(stringToSpeak: String) {
-        utterance = AVSpeechUtterance(string: stringToSpeak)
+        super.init()
+        
+        self.stringToSpeak = stringToSpeak
         currentString = stringToSpeak
-        // assign voice and properties from settings
-        let settings = Settings.sharedInstance()
-        utterance.voice = AVSpeechSynthesisVoice(language: settings.voice)
-        utterance.rate = settings.rate
-        utterance.pitchMultiplier = settings.pitch
+        configureUtteranceWithString(stringToSpeak)
     }
     
     /// Start speaking the string from the beginning.
@@ -53,11 +51,7 @@ public class NewsAnchor: AVSpeechSynthesizer {
         let startIndex = currentString.startIndex.advancedBy(nextIndex)
         currentString = currentString.substringFromIndex(startIndex)
         // create a new utterance and assign the properties
-        utterance = AVSpeechUtterance(string: currentString)
-        let settings = Settings.sharedInstance()
-        utterance.voice = AVSpeechSynthesisVoice(language: settings.voice)
-        utterance.rate = settings.rate
-        utterance.pitchMultiplier = settings.pitch
+        configureUtteranceWithString(currentString)
         // reset the index to 0
         // start speaking if speech was previously in-progress
         if speaking {
@@ -65,6 +59,15 @@ public class NewsAnchor: AVSpeechSynthesizer {
             stopSpeakingAtBoundary(.Word)
             startSpeaking()
         }
+    }
+    
+    /// assign voice and properties from settings
+    private func configureUtteranceWithString(string: String) {
+        utterance = AVSpeechUtterance(string: stringToSpeak)
+        let settings = Settings.sharedInstance()
+        utterance.voice = AVSpeechSynthesisVoice(language: settings.voice)
+        utterance.rate = settings.rate
+        utterance.pitchMultiplier = settings.pitch
     }
     
 }
@@ -77,12 +80,8 @@ extension NewsAnchor: AVSpeechSynthesizerDelegate {
     }
     
     public func speechSynthesizer(synthesizer: AVSpeechSynthesizer, didFinishSpeechUtterance utterance: AVSpeechUtterance) {
+        configureUtteranceWithString(stringToSpeak)
         // reset the index when speaking is complete
-        self.utterance = AVSpeechUtterance(string: stringToSpeak)
-        let settings = Settings.sharedInstance()
-        utterance.voice = AVSpeechSynthesisVoice(language: settings.voice)
-        utterance.rate = settings.rate
-        utterance.pitchMultiplier = settings.pitch
         nextIndex = 0
     }
     
