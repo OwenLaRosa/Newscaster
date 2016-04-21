@@ -45,6 +45,7 @@ import CoreData
         self.query = query
         self.url = url
         self.index = index
+        self.lastUpdated = NSDate()
     }
     
 }
