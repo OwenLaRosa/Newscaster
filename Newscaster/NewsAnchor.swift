@@ -78,6 +78,11 @@ extension NewsAnchor: AVSpeechSynthesizerDelegate {
     
     public func speechSynthesizer(synthesizer: AVSpeechSynthesizer, didFinishSpeechUtterance utterance: AVSpeechUtterance) {
         // reset the index when speaking is complete
+        self.utterance = AVSpeechUtterance(string: stringToSpeak)
+        let settings = Settings.sharedInstance()
+        utterance.voice = AVSpeechSynthesisVoice(language: settings.voice)
+        utterance.rate = settings.rate
+        utterance.pitchMultiplier = settings.pitch
         nextIndex = 0
     }
     
