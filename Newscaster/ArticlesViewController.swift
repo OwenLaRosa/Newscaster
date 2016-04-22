@@ -49,7 +49,10 @@ class ArticlesViewController: UIViewController, UITableViewDataSource, UITableVi
         if feed.articles.count == 0 {
             // nothing yet, fetch some news stories
             loadContent()
+        } else if NSDate().timeIntervalSinceDate(feed.lastUpdated) > 900 { // 15 minutes
+            loadContent()
         }
+        print(NSDate().timeIntervalSinceDate(feed.lastUpdated))
         
         refreshButton.target = self
         refreshButton.action = "loadContent"
@@ -164,6 +167,7 @@ class ArticlesViewController: UIViewController, UITableViewDataSource, UITableVi
             if let returnedArticles = result {
                 dispatch_async(dispatch_get_main_queue()) {
                     self.refreshControl.endRefreshing()
+                    self.feed.lastUpdated = NSDate()
                     self.updateArticleList(withArticles: returnedArticles)
                     self.tableView.reloadData()
                 }
@@ -179,6 +183,7 @@ class ArticlesViewController: UIViewController, UITableViewDataSource, UITableVi
             if let returnedArticles = result {
                 dispatch_async(dispatch_get_main_queue()) {
                     self.refreshControl.endRefreshing()
+                    self.feed.lastUpdated = NSDate()
                     self.updateArticleList(withArticles: returnedArticles)
                     // set the type to atom just in case it previously said RSS
                     self.feed.type = "Atom"
@@ -213,6 +218,7 @@ class ArticlesViewController: UIViewController, UITableViewDataSource, UITableVi
             if let returnedArticles = result {
                 dispatch_async(dispatch_get_main_queue()) {
                     self.refreshControl.endRefreshing()
+                    self.feed.lastUpdated = NSDate()
                     self.updateArticleList(withArticles: returnedArticles)
                     self.tableView.reloadData()
                 }
