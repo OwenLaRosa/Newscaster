@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 enum NewsClientError: String {
     /// Returned if the result was actually an Atom feed
@@ -23,7 +24,9 @@ class NewsClient {
         let request = NSMutableURLRequest(URL: NSURL(string: url)!)
         request.HTTPMethod = "GET"
         
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
         let task = session.dataTaskWithRequest(request) {data, response, error in
+            UIApplication.sharedApplication().networkActivityIndicatorVisible = false
             completionHandler(data: data, response: response, error: error)
         }
         task.resume()
