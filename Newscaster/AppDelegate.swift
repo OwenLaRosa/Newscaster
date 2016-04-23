@@ -20,6 +20,10 @@ func saveContext() {
     }
 }
 
+struct Notifications {
+    static let speechDidFinish = "com.owenlarosa.speechDidFinish"
+}
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 

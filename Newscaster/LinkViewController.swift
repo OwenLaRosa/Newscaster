@@ -29,6 +29,9 @@ class LinkViewController: UIViewController, UIWebViewDelegate {
         
         webView.delegate = self
         
+        // subscribe to notifications
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "showPlayButton", name: Notifications.speechDidFinish, object: nil)
+        
         // play button should be disabled to begin with
         navigationItem.rightBarButtonItems?.removeAll()
         navigationItem.rightBarButtonItems = [playButton, settingsButton]
@@ -129,6 +132,11 @@ class LinkViewController: UIViewController, UIWebViewDelegate {
         navigationItem.rightBarButtonItems?.removeAll()
         navigationItem.rightBarButtonItems = [playButton, settingsButton]
         newsAnchor.pauseSpeaking()
+    }
+    
+    func showPlayButton() {
+        navigationItem.rightBarButtonItems?.removeAll()
+        navigationItem.rightBarButtonItems = [playButton, settingsButton]
     }
     
 }

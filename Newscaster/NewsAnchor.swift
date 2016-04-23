@@ -83,6 +83,7 @@ extension NewsAnchor: AVSpeechSynthesizerDelegate {
         configureUtteranceWithString(stringToSpeak)
         // reset the index when speaking is complete
         nextIndex = 0
+        NSNotificationCenter.defaultCenter().postNotification(NSNotification(name: Notifications.speechDidFinish, object: nil))
     }
     
 }
