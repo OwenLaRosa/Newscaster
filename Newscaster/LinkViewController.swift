@@ -118,12 +118,15 @@ class LinkViewController: UIViewController, UIWebViewDelegate {
         // turn it into a pause button
         navigationItem.rightBarButtonItems?.removeAll()
         navigationItem.rightBarButtonItems = [pauseButton, settingsButton]
-        if newsAnchor.speaking {
+        if newsAnchor.paused && newsAnchor.speaking {
+            print("resume speaking")
             // resume speaking the article
             newsAnchor.resumeSpeaking()
         } else {
             // start speaking the article
-            newsAnchor.startSpeaking()
+            if !newsAnchor.speaking {
+                newsAnchor.startSpeaking()
+            }
         }
     }
     

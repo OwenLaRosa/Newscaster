@@ -53,10 +53,12 @@ public class NewsAnchor: AVSpeechSynthesizer {
         // create a new utterance and assign the properties
         configureUtteranceWithString(currentString)
         // reset the index to 0
+        nextIndex = 0
+        // stop original speech
+        stopSpeakingAtBoundary(.Word)
         // start speaking if speech was previously in-progress
-        if speaking {
-            // stop original speech and begin speaking the new utterance
-            stopSpeakingAtBoundary(.Word)
+        if !paused {
+            print("is speaking")
             startSpeaking()
         }
     }
@@ -80,6 +82,7 @@ extension NewsAnchor: AVSpeechSynthesizerDelegate {
     }
     
     public func speechSynthesizer(synthesizer: AVSpeechSynthesizer, didFinishSpeechUtterance utterance: AVSpeechUtterance) {
+        print("didFinish")
         configureUtteranceWithString(stringToSpeak)
         // reset the index when speaking is complete
         nextIndex = 0
