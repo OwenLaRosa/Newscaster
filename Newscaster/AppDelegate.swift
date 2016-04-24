@@ -22,6 +22,8 @@ func saveContext() {
 
 struct Notifications {
     static let speechDidFinish = "com.owenlarosa.speechDidFinish"
+    static let rateDidChange = "com.owenlarosa.rateDidChange"
+    static let pitchDidChange = "com.owenlarosa.pitchDidChange"
 }
 
 @UIApplicationMain

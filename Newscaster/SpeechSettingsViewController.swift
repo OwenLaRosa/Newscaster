@@ -69,6 +69,16 @@ extension SpeechSettingsViewController: UITableViewDataSource {
         case 0, 1:
             let cell = tableView.dequeueReusableCellWithIdentifier("SliderTableViewCell", forIndexPath: indexPath) as! SliderTableViewCell
             cell.selectionStyle = .None
+            cell.slider.continuous = false
+            if indexPath == 0 {
+                cell.slider.minimumValue = AVSpeechUtteranceMinimumSpeechRate
+                cell.slider.maximumValue = AVSpeechUtteranceMaximumSpeechRate
+                cell.didChangeNotification = Notifications.rateDidChange
+            } else if indexPath == 1 {
+                cell.slider.maximumValue = 2.0
+                cell.slider.minimumValue = 0.5
+                cell.didChangeNotification = Notifications.pitchDidChange
+            }
             return cell
         case 2:
             let voice = speechVoices[indexPath.row]

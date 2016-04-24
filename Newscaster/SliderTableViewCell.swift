@@ -10,6 +10,12 @@ import UIKit
 
 class SliderTableViewCell: UITableViewCell {
     
+    var didChangeNotification = ""
+    
     @IBOutlet weak var slider: UISlider!
+    
+    @IBAction func sliderValueChanged(sender: UISlider) {
+        NSNotificationCenter.defaultCenter().postNotification(NSNotification(name: didChangeNotification, object: slider))
+    }
     
 }

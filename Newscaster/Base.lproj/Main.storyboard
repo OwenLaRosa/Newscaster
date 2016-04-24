@@ -154,6 +154,9 @@
                                             <subviews>
                                                 <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="H5n-Xk-7Jm">
                                                     <rect key="frame" x="6" y="8" width="588" height="31"/>
+                                                    <connections>
+                                                        <action selector="sliderValueChanged:" destination="2he-Rz-Srf" eventType="valueChanged" id="spO-1t-th5"/>
+                                                    </connections>
                                                 </slider>
                                             </subviews>
                                             <constraints>
