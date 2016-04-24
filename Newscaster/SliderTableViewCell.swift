@@ -15,7 +15,7 @@ class SliderTableViewCell: UITableViewCell {
     @IBOutlet weak var slider: UISlider!
     
     @IBAction func sliderValueChanged(sender: UISlider) {
-        NSNotificationCenter.defaultCenter().postNotification(NSNotification(name: didChangeNotification, object: slider))
+        NSNotificationCenter.defaultCenter().postNotification(NSNotification(name: didChangeNotification, object: sender))
     }
     
 }
