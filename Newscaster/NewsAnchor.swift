@@ -65,7 +65,7 @@ public class NewsAnchor: AVSpeechSynthesizer {
     
     /// assign voice and properties from settings
     private func configureUtteranceWithString(string: String) {
-        utterance = AVSpeechUtterance(string: stringToSpeak)
+        utterance = AVSpeechUtterance(string: string)
         let settings = Settings.sharedInstance()
         utterance.voice = AVSpeechSynthesisVoice(language: settings.voice)
         utterance.rate = settings.rate
