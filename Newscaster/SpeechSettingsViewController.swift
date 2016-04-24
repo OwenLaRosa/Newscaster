@@ -29,17 +29,37 @@ class SpeechSettingsViewController: UIViewController {
         
         UIApplication.sharedApplication().setStatusBarStyle(.Default, animated: false)
         tableView.reloadData()
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "rateDidChange:", name: Notifications.rateDidChange, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "pitchDidChange:", name: Notifications.pitchDidChange, object: nil)
     }
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         
         UIApplication.sharedApplication().setStatusBarStyle(.LightContent, animated: false)
+        NSNotificationCenter.defaultCenter().removeObserver(self)
     }
     
     @IBAction func applyButtonTapped(sender: UIButton) {
         newsAnchor?.resetSpeechSettings()
         dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func rateDidChange(notification: NSNotification) {
+        print(notification.object)
+        if let slider = notification.object as? UISlider {
+            Settings.sharedInstance().rate = slider.value
+            print("rate is: \(slider.value)")
+        }
+    }
+    
+    func pitchDidChange(notification: NSNotification) {
+        print(notification.object)
+        if let slider = notification.object as? UISlider {
+            Settings.sharedInstance().pitch = slider.value
+            print("pitch is: \(slider.value)")
+        }
     }
     
 }
