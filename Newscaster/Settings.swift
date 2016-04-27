@@ -8,11 +8,11 @@
 
 import Foundation
 
-class Settings {
+public class Settings {
     
     private var userDefaults = NSUserDefaults.standardUserDefaults()
     
-    private struct Defaults {
+    public struct Defaults {
         static let voice = "en-GB"
         static let rate: Float = 0.5
         static let pitch: Float = 1.0
