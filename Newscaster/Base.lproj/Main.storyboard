@@ -154,6 +154,7 @@
                                             <subviews>
                                                 <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="H5n-Xk-7Jm">
                                                     <rect key="frame" x="6" y="8" width="588" height="31"/>
+                                                    <color key="tintColor" red="0.0" green="0.40000000000000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <connections>
                                                         <action selector="sliderValueChanged:" destination="2he-Rz-Srf" eventType="valueChanged" id="spO-1t-th5"/>
                                                     </connections>
@@ -166,7 +167,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="slider" destination="H5n-Xk-7Jm" id="SIw-MS-zXq"/>
+                                            <outlet property="slider" destination="H5n-Xk-7Jm" id="las-Dh-aGh"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="checkmark" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SpeechVoiceTableViewCell" textLabel="pNN-wM-LW1" style="IBUITableViewCellStyleDefault" id="m1V-vQ-9Ti" customClass="SpeechVoiceTableViewCell" customModule="Newscaster" customModuleProvider="target">
