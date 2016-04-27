@@ -116,6 +116,7 @@ extension SpeechSettingsViewController: UITableViewDataSource {
         case 3:
             let cell = tableView.dequeueReusableCellWithIdentifier("SpeechVoiceTableViewCell", forIndexPath: indexPath)
             cell.textLabel?.text = "Reset Settings"
+            cell.textLabel?.textColor = UIColor.redColor()
             return cell
         default:
             return UITableViewCell()
