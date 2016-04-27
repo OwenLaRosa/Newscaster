@@ -142,9 +142,17 @@ extension SpeechSettingsViewController: UITableViewDataSource {
 extension SpeechSettingsViewController: UITableViewDelegate {
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let voice = speechVoices[indexPath.row]
-        Settings.sharedInstance().voice = voice.language
-        newsAnchor?.utterance.voice = voice
+        if indexPath.section == 3 {
+            // reset button tapped
+            let settings = Settings.sharedInstance()
+            settings.voice = Settings.Defaults.voice
+            settings.pitch = Settings.Defaults.pitch
+            settings.rate = Settings.Defaults.rate
+        } else {
+            let voice = speechVoices[indexPath.row]
+            Settings.sharedInstance().voice = voice.language
+            newsAnchor?.utterance.voice = voice
+        }
         
         // reflect changes in the UI
         tableView.reloadData()
