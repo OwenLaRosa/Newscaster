@@ -14,6 +14,8 @@ public class NewsAnchor: AVSpeechSynthesizer {
     var stringToSpeak: String!
     /// String currently being spoken
     private var currentString: String!
+    // Whether or not the startSpeaking() function has been called
+    private var hasBegunSpeaking = false
     
     var utterance: AVSpeechUtterance!
     
@@ -31,6 +33,7 @@ public class NewsAnchor: AVSpeechSynthesizer {
     public func startSpeaking() {
         delegate = self
         speakUtterance(utterance)
+        hasBegunSpeaking = true
     }
     
     /// Pause currently active speech
@@ -56,6 +59,10 @@ public class NewsAnchor: AVSpeechSynthesizer {
         nextIndex = 0
         // stop original speech
         stopSpeakingAtBoundary(.Word)
+        // do nothing is speaking has not yet begun
+        if !hasBegunSpeaking {
+            return
+        }
         // start speaking if speech was previously in-progress
         if !paused {
             print("is speaking")
