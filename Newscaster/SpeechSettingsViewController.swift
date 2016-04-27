@@ -112,6 +112,7 @@ extension SpeechSettingsViewController: UITableViewDataSource {
                 cell.accessoryType = .None
             }
             cell.textLabel?.text = "\(voice.name) (\(voice.language))"
+            cell.textLabel?.textColor = UIColor.blackColor()
             return cell
         case 3:
             let cell = tableView.dequeueReusableCellWithIdentifier("SpeechVoiceTableViewCell", forIndexPath: indexPath)
