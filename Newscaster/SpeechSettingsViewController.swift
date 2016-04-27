@@ -70,7 +70,7 @@ extension SpeechSettingsViewController: UITableViewDataSource {
         // section 1: change rate
         // section 2: change pitch
         // section 3: change voice
-        return 3
+        return 4
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -79,6 +79,8 @@ extension SpeechSettingsViewController: UITableViewDataSource {
             return 1 // one slider
         case 2:
             return speechVoices.count
+        case 3:
+            return 1
         default:
             return 0
         }
@@ -111,6 +113,10 @@ extension SpeechSettingsViewController: UITableViewDataSource {
             }
             cell.textLabel?.text = "\(voice.name) (\(voice.language))"
             return cell
+        case 3:
+            let cell = tableView.dequeueReusableCellWithIdentifier("SpeechVoiceTableViewCell", forIndexPath: indexPath)
+            cell.textLabel?.text = "Reset Settings"
+            return cell
         default:
             return UITableViewCell()
         }
@@ -124,6 +130,8 @@ extension SpeechSettingsViewController: UITableViewDataSource {
             return "pitch"
         case 2:
             return "voice"
+        case 3:
+            return "reset"
         default:
             return ""
         }
