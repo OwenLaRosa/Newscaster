@@ -95,10 +95,13 @@ class ArticlesViewController: UIViewController, UITableViewDataSource, UITableVi
             return nil
         }
         if let image = UIImage(named: "yahoo") {
-            let imageView = UIImageView(image: image)
-            imageView.backgroundColor = UIColor.whiteColor()
-            imageView.contentMode = .ScaleAspectFit
-            return imageView
+            let button = UIButton()
+            button.setImage(image, forState: .Normal)
+            button.setImage(image, forState: .Selected)
+            button.imageView?.contentMode = .ScaleAspectFit
+            button.backgroundColor = UIColor.whiteColor()
+            button.addTarget(self, action: "linkToYahoo", forControlEvents: .TouchUpInside)
+            return button
         }
         return nil
     }
@@ -260,6 +263,11 @@ class ArticlesViewController: UIViewController, UITableViewDataSource, UITableVi
             }
         }
         return newArticles
+    }
+    
+    func linkToYahoo() {
+        let url = NSURL(string: "https://www.yahoo.com/?ilc=401")!
+        UIApplication.sharedApplication().openURL(url)
     }
     
 }
