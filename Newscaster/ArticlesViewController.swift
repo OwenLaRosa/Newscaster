@@ -90,6 +90,19 @@ class ArticlesViewController: UIViewController, UITableViewDataSource, UITableVi
         return cell
     }
     
+    func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        if feed.type == "News" {
+            return nil
+        }
+        if let image = UIImage(named: "yahoo") {
+            let imageView = UIImageView(image: image)
+            imageView.backgroundColor = UIColor.whiteColor()
+            imageView.contentMode = .ScaleAspectFit
+            return imageView
+        }
+        return nil
+    }
+    
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let article = fetchedResultsController.fetchedObjects?[indexPath.row]
             performSegueWithIdentifier("OpenLink", sender: article)
