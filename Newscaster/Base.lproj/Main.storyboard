@@ -142,7 +142,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="xFr-Ck-Nc0">
-                                <rect key="frame" x="0.0" y="65" width="600" height="535"/>
+                                <rect key="frame" x="0.0" y="58" width="600" height="542"/>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SliderTableViewCell" id="2he-Rz-Srf" customClass="SliderTableViewCell" customModule="Newscaster" customModuleProvider="target">
@@ -223,7 +223,7 @@
                             <constraint firstItem="9SD-g8-i1K" firstAttribute="bottom" secondItem="fDo-SU-a1S" secondAttribute="bottom" id="hat-HF-c7x"/>
                             <constraint firstItem="9SD-g8-i1K" firstAttribute="top" secondItem="TEZ-iM-89f" secondAttribute="bottom" id="kPM-u7-bXA"/>
                             <constraint firstItem="fDo-SU-a1S" firstAttribute="centerX" secondItem="xFr-Ck-Nc0" secondAttribute="centerX" id="oYp-K7-hBE"/>
-                            <constraint firstItem="xFr-Ck-Nc0" firstAttribute="top" secondItem="9SD-g8-i1K" secondAttribute="bottom" constant="15" id="pVg-HU-pB3"/>
+                            <constraint firstItem="xFr-Ck-Nc0" firstAttribute="top" secondItem="9SD-g8-i1K" secondAttribute="bottom" constant="8" id="pVg-HU-pB3"/>
                         </constraints>
                     </view>
                     <connections>
