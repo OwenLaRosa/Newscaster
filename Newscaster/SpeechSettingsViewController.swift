@@ -95,10 +95,12 @@ extension SpeechSettingsViewController: UITableViewDataSource {
             if indexPath.section == 0 {
                 cell.slider.minimumValue = AVSpeechUtteranceMinimumSpeechRate
                 cell.slider.maximumValue = AVSpeechUtteranceMaximumSpeechRate
+                cell.slider.value = Settings.sharedInstance().rate
                 cell.didChangeNotification = Notifications.rateDidChange
             } else if indexPath.section == 1 {
                 cell.slider.maximumValue = 2.0
                 cell.slider.minimumValue = 0.5
+                cell.slider.value = Settings.sharedInstance().pitch
                 cell.didChangeNotification = Notifications.pitchDidChange
             }
             return cell
