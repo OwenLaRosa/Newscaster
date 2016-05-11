@@ -73,10 +73,10 @@ struct NewsItem {
         }
         if let link = atom["link"] as? [[String: String]] {
             for i in link {
-                if let title = i["title"] {
+                if let type = i["type"] {
                     // determine if this is an actual web page
                     // some services like Blogger will also link to comments
-                    if title.hasSuffix("html") {
+                    if type.hasSuffix("html") {
                         self.link = i["href"] ?? ""
                     }
                 }
