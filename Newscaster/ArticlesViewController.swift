@@ -107,8 +107,17 @@ class ArticlesViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let article = fetchedResultsController.fetchedObjects?[indexPath.row]
+        let article = fetchedResultsController.fetchedObjects?[indexPath.row] as! Article
+        // regular url format
+        let pattern = "^(https?:\\/\\/)([a-zA-Z0-9_\\-~]+\\.)+[a-zA-Z0-9_\\-~\\/\\.]+$"
+        // check if string conforms to format
+        if let _ = article.link.rangeOfString(pattern, options: .RegularExpressionSearch) {
+            // open the link if it's a valid URL
             performSegueWithIdentifier("OpenLink", sender: article)
+        } else {
+            // otherwise, just deselect the row
+            tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        }
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
