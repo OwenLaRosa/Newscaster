@@ -83,7 +83,7 @@ class ArticlesViewController: UIViewController, UITableViewDataSource, UITableVi
         let article = fetchedResultsController.objectAtIndexPath(indexPath) as! Article
         
         cell.headlineLabel.text = article.title
-        cell.previewLabel.text = article.preview
+        cell.previewLabel.text = article.preview == "" ? "Sorry but there is no preview available for this article." : article.preview
         // details about source and publication date
         cell.infoLabel.text = "\(article.source) \(article.dateString)"
         
