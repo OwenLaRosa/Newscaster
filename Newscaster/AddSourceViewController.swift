@@ -49,7 +49,7 @@ class AddSourceViewController: UIViewController {
                 link = linkField.text!
             } else {
                 // otherwise, the text entry becomes the search query
-                query = nameField.text
+                query = linkField.text == "" ? nameField.text : linkField.text
             }
             let feed = Feed(name: name, type: type, query: query, url: link, index: index, context: sharedContext)
             saveContext()
