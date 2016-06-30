@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -16,38 +17,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="WNM-9E-O6o">
-                                <rect key="frame" x="236" y="209" width="128" height="128"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="128" id="ned-bE-gsl"/>
-                                </constraints>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k0e-W2-S5g">
                                 <rect key="frame" x="224" y="137" width="0.0" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Newscaster" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d30-ja-Yeq">
-                                <rect key="frame" x="188" y="345" width="224" height="36"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launch" translatesAutoresizingMaskIntoConstraints="NO" id="NJR-sY-dPD">
+                                <rect key="frame" x="220" y="192" width="160" height="160"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="224" id="fPn-ks-8xe"/>
+                                    <constraint firstAttribute="width" constant="160" id="Mre-xD-WNN"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.46666666670000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="d30-ja-Yeq" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="325" id="Bls-gG-4cV"/>
+                            <constraint firstItem="NJR-sY-dPD" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="172" id="35e-Jf-qAC"/>
+                            <constraint firstItem="NJR-sY-dPD" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="9uM-Do-wSa"/>
                             <constraint firstItem="k0e-W2-S5g" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" constant="137" id="MeS-mC-ruq"/>
-                            <constraint firstItem="WNM-9E-O6o" firstAttribute="bottom" secondItem="d30-ja-Yeq" secondAttribute="bottom" constant="-44" id="Po1-OP-XCQ"/>
-                            <constraint firstItem="WNM-9E-O6o" firstAttribute="centerX" secondItem="d30-ja-Yeq" secondAttribute="centerX" id="Tf2-aR-mst"/>
-                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="d30-ja-Yeq" secondAttribute="bottom" constant="219" id="dtf-2e-U7Z"/>
-                            <constraint firstItem="WNM-9E-O6o" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="qsN-ft-toq"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="NJR-sY-dPD" secondAttribute="bottom" constant="248" id="dPU-o6-FEd"/>
+                            <constraint firstItem="NJR-sY-dPD" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="height" multiplier="4:15" id="eid-ZW-E5a"/>
                             <constraint firstItem="k0e-W2-S5g" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" constant="224" id="xKt-97-VEF"/>
-                            <constraint firstItem="WNM-9E-O6o" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="189" id="y1F-gf-Lnj"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -57,6 +47,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Logo" width="1024" height="1024"/>
+        <image name="launch" width="1023" height="1022"/>
     </resources>
 </document>
